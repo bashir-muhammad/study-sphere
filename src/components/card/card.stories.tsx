@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { Card, CardTitle, CardDescription, CardFooter } from "./card";
+import {
+  Card,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+} from "./card";
 import { Button } from "@/components/button/button";
 import ListAltCheck from "@/assets/icons/list-alt-check.svg";
 
@@ -55,9 +61,13 @@ export const Completed: Story = {
   ),
 };
 
-export const Result: Story = {
+export const Primary: Story = {
   render: (args) => (
-    <Card {...args} variant="result">
+    <Card {...args} variant="primary">
+      <CardHeader>
+        <span>Result</span>
+        <span>85%</span>
+      </CardHeader>
       <CardTitle>Card Title</CardTitle>
       <CardDescription>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis et

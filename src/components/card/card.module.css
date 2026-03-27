@@ -3,24 +3,21 @@
   flex-direction: column;
   background-color: var(--color-white);
   padding: var(--space-4xl);
+  border-radius: var(--space-xs);
   transition:
     background-color,
     opacity var(--transition1);
-
-  --cut: 20px;
-
-  clip-path: polygon(
-    0% 0%,
-    calc(100% - var(--cut)) 0%,
-    100% var(--cut),
-    100% 100%,
-    0% 100%
-  );
-
+    
   &:hover {
     opacity: 0.8;
     cursor: pointer;
   }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .completed {
@@ -33,18 +30,26 @@
   }
 }
 
-.result {
+.primary {
   background-color: var(--color-primary);
+  color: var(--color-white);
 
   &:hover {
     opacity: 1;
-    background-color: var(--color-primary-20);
-  }
+    background-color: var(--color-primary-40);
+  }  
+}
+
+.primary .description {
+  color: var(--color-primary-10);
 }
 
 .title {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--text-xl);
+  font-size: var(--text-xl);
 }
+
+
 
 .footer {
   display: flex;

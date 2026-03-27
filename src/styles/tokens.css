@@ -92,19 +92,19 @@
   /* --- Responsive text defaults (mobile-first) --- */
   --text-sm: clamp(0.75rem, 0.875rem, 0.875rem);
   --text-sm-margin: 1.05rem; /* 16.7px */
-  --text-md: clamp(1rem, 1rem, 1.125rem);
+  --text-md: 0.875rem;
   --text-md-margin: 1.225rem; /* 19.6px */
-  --text-lg: clamp(1.125rem, 1.125rem, 1.25rem); /* 18px */
-  --text-xl: clamp(1.125rem, 1.25rem, 1.375rem);
+  --text-lg: 1.25rem;
+  --text-xl: 1.25rem;
   --text-xl-margin: 2.8rem; /* 44.79px */
-  --text-2xl: clamp(1.5rem, 1.75rem, 2rem); /* 56px */
-  --text-2xl-margin: 4.9rem; /* 78.4px */
-  --text-3xl: clamp(2.25rem, 3rem, 3.5rem);
+  --text-2xl: 2rem;
+
 
   /* --- Viewport reference --- */
   --viewport-mobile: 390px;
   --viewport-tablet: 768px;
-  --viewport-desktop: 1920px;
+  --viewport-desktop: 1024px;
+  --viewport-large-desktop: 1440px;
 
   /* Transitions */
   --transition1: 300ms ease-out;
@@ -113,6 +113,9 @@
 /* TABLET OVERRIDES  ≥ 768px */
 @media (width >= 768px) {
   :root {
+    --text-md: 1rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2.5rem;
     --space-xs: 8px;
     --space-sm: 12px;
     --space-md: 16px;
@@ -126,9 +129,20 @@
   }
 }
 
-/* DESKTOP OVERRIDES  ≥ 1920px */
-@media (width >= 1920px) {
+@media (width >= 1024px) {
+:root {
+    --text-md: 1.125rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 3.5rem;
+  }
+}
+
+/* DESKTOP OVERRIDES  ≥ 1440px */
+@media (width >= 1440px) {
   :root {
+    --text-md: 1.25rem;
+    --text-xl: 2rem;
+    --text-2xl: 4rem;
     --space-xs: 12px;
     --space-sm: 16px;
     --space-md: 20px;

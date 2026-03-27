@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import Styles from "./card.module.css";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "completed" | "result";
+  variant?: "default" | "completed" | "primary";
 }
 
 const Card = ({
@@ -14,6 +14,19 @@ const Card = ({
   const combinedClasses = [Styles.card, Styles[variant], className]
     .filter(Boolean)
     .join(" ");
+  return (
+    <div className={combinedClasses} {...props}>
+      {children}
+    </div>
+  );
+};
+
+const CardHeader = ({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  const combinedClasses = [Styles.header, className].filter(Boolean).join(" ");
   return (
     <div className={combinedClasses} {...props}>
       {children}
@@ -39,7 +52,9 @@ const CardDescription = ({
   children,
   ...props
 }: HTMLAttributes<HTMLParagraphElement>) => {
-  const combinedClasses = [Styles.title, className].filter(Boolean).join(" ");
+  const combinedClasses = [Styles.description, className]
+    .filter(Boolean)
+    .join(" ");
   return (
     <p className={combinedClasses} {...props}>
       {children}
@@ -60,4 +75,4 @@ const CardFooter = ({
   );
 };
 
-export { Card, CardTitle, CardDescription, CardFooter };
+export { Card, CardTitle, CardDescription, CardFooter, CardHeader };
