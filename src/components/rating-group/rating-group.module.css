@@ -1,0 +1,49 @@
+.ratingroup {
+  list-style: none;
+  display: flex;
+  padding-bottom: var(--space-4xl, 32px);
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: var(--space-sm, 8px) var(--space-8, 8px);
+  flex-wrap: wrap;
+
+  &:has(.button[aria-pressed="true"]) .button {
+    background-color: var(--color-primary);
+  }
+
+  & li:has(.button[aria-pressed="true"]) ~ li .button {
+    background-color: var(--color-white);
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.button {
+  background-color: var(--color-white);
+  border-radius: var(--space-64, 64px);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-8, 8px);
+  font-family: var(--font-sansation);
+  font-size: var(--text-lg, 18px);
+  font-weight: 700;
+  line-height: 100%;
+  width: var(--space-52);
+  height: var(--space-52);
+  transition: background-color var(--transition1);
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &:hover {
+    background-color: var(--color-primary);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+
+  &[aria-pressed="true"] {
+    background-color: var(--color-primary);
+  }
+}

@@ -1,0 +1,47 @@
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  color: var(--color-white);
+  margin-bottom: calc(var(--space-32) + var(--space-56));
+
+  @media (width >= 768px) {
+    margin-bottom: calc(var(--space-44) + var(--space-56));
+  }
+
+  @media (width >= 1920px) {
+    margin-bottom: calc(var(--space-64) + var(--space-56));
+  }
+}
+
+.backButton {
+  margin-bottom: var(--space-6xl);
+  margin-right: auto;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-bottom: var(--space-4xl);
+}
+
+.nextButton,
+.finishButton {
+  &:focus-visible {
+    outline-color: var(--color-white);
+  }
+}
+
+.finishButton {
+  display: flex;
+  justify-content: end;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--space-md);
+  align-self: end;
+}

@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  padding-top: var(--space-32);
+  margin-bottom: var(--space-64);
+
+  @media (width >= 768px) {
+    padding-top: var(--space-44);
+  }
+}
+
+.logo {
+  width: var(--space-40);
+  height: var(--space-52);
+}
+
+.yellowbar {
+  display: block;
+  position: absolute;
+  background-color: var(--color-primary);
+  top: 0;
+  right: 0;
+  height: var(--space-40);
+  width: 120px;
+
+  @media (width >= 768px) {
+    width: 230px;
+  }
+
+  @media (width >= 1024px) {
+    width: 307px;
+  }
+
+  @media (width >= 1920px) {
+    width: 960px;
+  }
+}

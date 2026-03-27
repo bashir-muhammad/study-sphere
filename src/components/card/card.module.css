@@ -1,0 +1,67 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  padding: var(--space-4xl);
+  transition:
+    background-color,
+    opacity var(--transition1);
+
+  --cut: 20px;
+
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - var(--cut)) 0%,
+    100% var(--cut),
+    100% 100%,
+    0% 100%
+  );
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.completed {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.result {
+  background-color: var(--color-primary);
+
+  &:hover {
+    opacity: 1;
+    background-color: var(--color-primary-20);
+  }
+}
+
+.title {
+  margin-bottom: var(--space-lg);
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  margin-top: auto;
+}
+
+.card:hover button,
+.card:hover a {
+  background-color: var(--color-gray-60);
+  color: var(--color-white);
+  border-color: transparent;
+}
+
+.result:hover button {
+  color: var(--color-primary-20);
+}
