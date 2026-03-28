@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  font-family: var(--font-sansation);
-  font-weight: var(--font-bold);
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: var(--font-semi-bold);
   color: var(--color-gray-90);
   border: none;
   border-radius: 100px;

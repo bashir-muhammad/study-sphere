@@ -4,7 +4,10 @@ const config: StorybookConfig = {
   framework: "@storybook/nextjs",
   stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: ["@storybook/addon-a11y"],
-  staticDirs: ["../public"],
+  staticDirs: [
+    "../public",
+    { from: "../src/assets/fonts", to: "/src/assets/fonts" },
+  ],
   webpackFinal(config) {
     if (!config.module?.rules) return config;
 

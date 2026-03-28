@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { AppProvider } from "@/context/app-context";
 import { AppConfig } from "@/types/config";
-import { sansation, ibmPlexSerif } from "@/styles/fonts";
+import { plusJakartaSans, manrope } from "@/styles/fonts";
 import "@/styles/tokens.css";
 import "@/styles/globals.css";
 import localData from "@/data/beecepter.json";
@@ -38,7 +38,7 @@ export default async function RootLayout({
   const config = await getAppData();
   return (
     <html lang="en">
-      <body className={`${sansation.variable} ${ibmPlexSerif.variable}`}>
+      <body className={`${plusJakartaSans.variable} ${manrope.variable}`}>
         <AppProvider config={config}>{children}</AppProvider>
       </body>
     </html>

@@ -1,30 +1,25 @@
 import localFont from "next/font/local";
 
-export const sansation = localFont({
+export const plusJakartaSans = localFont({
   src: [
     {
-      path: "../assets/fonts/Sansation-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/Sansation-Bold.ttf",
-      weight: "700",
+      path: "../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf",
+      weight: "400, 500, 600, 700",
       style: "normal",
     },
   ],
-  variable: "--font-sansation",
+  variable: "--font-plus-jakarta-sans",
   display: "swap",
 });
 
-export const ibmPlexSerif = localFont({
+export const manrope = localFont({
   src: [
     {
-      path: "../assets/fonts/IBMPlexSerif-Regular.ttf",
+      path: "../assets/fonts/Manrope-Regular.ttf",
       weight: "400",
       style: "normal",
     },
   ],
-  variable: "--font-ibm-plex",
+  variable: "--font-manrope",
   display: "swap",
 });

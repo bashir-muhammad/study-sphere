@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/nextjs";
-import { sansation, ibmPlexSerif } from "../src/styles/fonts";
+import { plusJakartaSans, manrope } from "../src/styles/fonts";
 import "@/styles/tokens.css";
 import "@/styles/globals.css";
 const preview: Preview = {
@@ -13,13 +13,13 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div className={`${sansation.variable} ${ibmPlexSerif.variable}`}>
+      <div className={`${plusJakartaSans.variable} ${manrope.variable}`}>
         <Story />
       </div>
     ),
   ],
   async beforeEach() {
-    document.body.classList.add(sansation.variable, ibmPlexSerif.variable);
+    document.body.classList.add(plusJakartaSans.variable, manrope.variable);
   },
 };
 
