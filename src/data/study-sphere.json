@@ -1,0 +1,215 @@
+{
+  "siteConfig": {
+    "name": "Study sphere",
+    "tagline": "Master any subject, one card at a time.",
+    "logoUrl": "/assets/logo.svg"
+  },
+  "navigation": {
+    "header": [
+      { "label": "Library", "path": "/", "icon": "LibraryIcon" },
+      { "label": "Create", "path": "/create", "icon": "PlusIcon" },
+      { "label": "Dashboard", "path": "/dashboard", "icon": "ChartIcon" }
+    ],
+    "footer": [
+      { "label": "Privacy Policy", "path": "/privacy" },
+      { "label": "Terms of Service", "path": "/terms" },
+      { "label": "Help & Support", "path": "/support" },
+      { "label": "GitHub", "path": "https://github.com/bashir/flashmind" }
+    ]
+  },
+  "decks": [
+    {
+      "id": "deck-cosmology-001",
+      "title": "Secrets of the Cosmos",
+      "description": "Explore the physics of black holes, dark matter, and the expanding universe.",
+      "createdAt": 1711612800000,
+      "cards": [
+        {
+          "id": "c_astro_1",
+          "question": "What is the theoretical boundary surrounding a black hole?",
+          "answer": "Event Horizon",
+          "options": [
+            "Singularity",
+            "Event Horizon",
+            "Accretion Disk",
+            "Schwarzschild Radius"
+          ]
+        },
+        {
+          "id": "c_astro_2",
+          "question": "What percentage of the universe is Dark Energy?",
+          "answer": "68%",
+          "options": ["5%", "27%", "68%", "95%"]
+        },
+        {
+          "id": "c_astro_3",
+          "question": "Light stretching as galaxies move away is called:",
+          "answer": "Redshift",
+          "options": [
+            "Blueshift",
+            "Time Dilation",
+            "Redshift",
+            "Spaghettification"
+          ]
+        },
+        {
+          "id": "c_astro_4",
+          "question": "The 'echo' of the Big Bang is known as:",
+          "answer": "CMB",
+          "options": [
+            "Hawking Radiation",
+            "CMB",
+            "Dark Matter Halo",
+            "Pulsar Beam"
+          ]
+        },
+        {
+          "id": "c_astro_5",
+          "question": "First element formed after the Big Bang?",
+          "answer": "Hydrogen",
+          "options": ["Helium", "Lithium", "Hydrogen", "Carbon"]
+        },
+        {
+          "id": "c_astro_6",
+          "question": "Process where black holes evaporate?",
+          "answer": "Hawking Radiation",
+          "options": [
+            "Spaghettification",
+            "Hawking Radiation",
+            "Supernova",
+            "Quasar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deck-psych-002",
+      "title": "Cognitive Biases",
+      "description": "Master the mental shortcuts that lead to errors in judgment.",
+      "createdAt": 1711699200000,
+      "cards": [
+        {
+          "id": "c_psych_1",
+          "question": "Bias of seeking info that supports our beliefs?",
+          "answer": "Confirmation Bias",
+          "options": [
+            "Anchor Bias",
+            "Confirmation Bias",
+            "Availability Heuristic",
+            "Hindsight Bias"
+          ]
+        },
+        {
+          "id": "c_psych_2",
+          "question": "Continuing an endeavor because of past investment?",
+          "answer": "Sunk Cost Fallacy",
+          "options": [
+            "Success Bias",
+            "Sunk Cost Fallacy",
+            "No Option Bias",
+            "Social Pressure"
+          ]
+        },
+        {
+          "id": "c_psych_3",
+          "question": "Relying too heavily on the first piece of info offered?",
+          "answer": "Anchoring",
+          "options": ["Framing", "Anchoring", "Dunning-Kruger", "Halo Effect"]
+        },
+        {
+          "id": "c_psych_4",
+          "question": "Low ability people overestimating their competence?",
+          "answer": "Dunning-Kruger",
+          "options": [
+            "Halo Effect",
+            "Dunning-Kruger",
+            "Barnum Effect",
+            "Status Quo"
+          ]
+        },
+        {
+          "id": "c_psych_5",
+          "question": "Overestimating info that is easy to recall?",
+          "answer": "Availability Heuristic",
+          "options": [
+            "Fact Bias",
+            "Statistical Bias",
+            "Availability Heuristic",
+            "Contrast Effect"
+          ]
+        },
+        {
+          "id": "c_psych_6",
+          "question": "Overall impression influencing character judgment?",
+          "answer": "Halo Effect",
+          "options": [
+            "Bystander Effect",
+            "Halo Effect",
+            "Placebo Effect",
+            "Spotlight Effect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deck-hist-003",
+      "title": "Lost Civilizations",
+      "description": "Bronze Age collapse and the mysteries of the ancient world.",
+      "createdAt": 1711785600000,
+      "cards": [
+        {
+          "id": "c_hist_1",
+          "question": "Which undeciphered script belonged to the Minoans?",
+          "answer": "Linear A",
+          "options": ["Mycenaean", "Linear A", "Sumerian", "Hittite"]
+        },
+        {
+          "id": "c_hist_2",
+          "question": "Mohenjo-Daro was a settlement of which civilization?",
+          "answer": "Indus Valley",
+          "options": ["Mesopotamian", "Indus Valley", "Egyptian", "Olmec"]
+        },
+        {
+          "id": "c_hist_3",
+          "question": "Reason for the Mayan Classical period collapse?",
+          "answer": "Drought",
+          "options": ["Volcano", "Spanish Conquest", "Drought", "Earthquake"]
+        },
+        {
+          "id": "c_hist_4",
+          "question": "The 'Sea Peoples' are associated with which collapse?",
+          "answer": "Bronze Age",
+          "options": ["Iron Age", "Bronze Age", "Neolithic", "Hellenistic"]
+        },
+        {
+          "id": "c_hist_5",
+          "question": "Location of Göbekli Tepe (first temple)?",
+          "answer": "Turkey",
+          "options": ["Iraq", "Egypt", "Turkey", "Iran"]
+        },
+        {
+          "id": "c_hist_6",
+          "question": "Who created the Cuneiform writing system?",
+          "answer": "Sumerians",
+          "options": ["Sumerians", "Phoenicians", "Aztecs", "Akadians"]
+        }
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "deckId": "deck-cosmology-001",
+      "totalCards": 6,
+      "correctAnswers": 4,
+      "sessionCount": 2,
+      "score": 66
+    },
+    {
+      "deckId": "deck-psych-002",
+      "totalCards": 6,
+      "correctAnswers": 6,
+      "sessionCount": 1,
+      "score": 100
+    }
+  ]
+}

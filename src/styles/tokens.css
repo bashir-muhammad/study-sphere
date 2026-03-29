@@ -112,6 +112,8 @@
   --viewport-tablet: 768px;
   --viewport-desktop: 1024px;
   --viewport-large-desktop: 1440px;
+  --gutter: var(--space-16);
+  --screen-padding: var(--space-24);
 
   /* Transitions */
   --transition1: 300ms ease-out;
@@ -133,6 +135,8 @@
     --space-4xl: 36px;
     --space-5xl: 40px;
     --space-6xl: 44px;
+    --gutter: var(--space-16);
+    --screen-padding: var(--space-32);
   }
 }
 
@@ -141,6 +145,8 @@
     --text-md: 1.125rem;
     --text-xl: 1.75rem;
     --text-2xl: 3.5rem;
+    --gutter: var(--space-33);
+    --screen-padding: var(--space-64);
   }
 }
 

@@ -1,48 +1,50 @@
-export interface QuestionnaireQuestion {
+export interface Flashcard {
+  id: string;
   question: string;
-  validation: string;
-  "follow-up-options": string[];
+  answer: string;
+  options: string[];
 }
 
-export interface Questionnaire {
+export interface Deck {
   id: string;
-  color: string;
-  "background-type": string;
   title: string;
   description: string;
-  questions: QuestionnaireQuestion[];
+  cards: Flashcard[];
+  createdAt: number; // Unix timestamp
 }
 
-export interface AppConfig {
-  questionnaires: Questionnaire[];
-  homepage: {
-    title: string;
-    description: string;
+export interface DeckStats {
+  deckId: string;
+  totalCards: number;
+  correctAnswers: number;
+  sessionCount: number;
+  score: number; // Percentage (0-100)
+}
+
+export interface NavItem {
+  label: string;
+  path: string;
+  icon?: string;
+}
+
+export interface SiteConfig {
+  name: string;
+  tagline: string;
+  logoUrl: string;
+}
+
+export interface RootAppData {
+  siteConfig: SiteConfig;
+  navigation: {
+    header: NavItem[];
+    footer: NavItem[];
   };
-  questionnaire: {
-    "sup-title": string;
-    description: string;
-    results: {
-      title: string;
-      description: string;
-    };
-    footer: {
-      copyright: string;
-      links: {
-        name: string;
-        url: string;
-      }[];
-    };
-  };
+  decks: Deck[];
+  stats: DeckStats[];
 }
 
-export interface UserAnswer {
-  rating: number;
-  followUp: string;
-}
-
-export interface GlobalState {
-  config: AppConfig | null;
-  responses: Record<string, Record<number, UserAnswer>>;
-  isHydrated: boolean;
+export interface AppState {
+  data: RootAppData | null;
+  loading: boolean;
+  error: string | null;
 }
