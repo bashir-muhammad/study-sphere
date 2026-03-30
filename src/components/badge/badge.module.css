@@ -1,0 +1,18 @@
+.badge {
+  display: inline-block;
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semi-bold);
+  border-radius: var(--border-radius-full);
+  text-transform: uppercase;
+}
+
+.primary {
+  color: var(--color-primary);
+  background-color: var(--color-primary-10);
+}
+
+.tertiary {
+  color: var(--color-tertiary);
+  background-color: var(--color-tertiary-10);
+}
