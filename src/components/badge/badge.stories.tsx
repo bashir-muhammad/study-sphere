@@ -5,7 +5,7 @@ const meta: Meta<typeof Badge> = {
   title: "Components/Badge",
   component: Badge,
   parameters: {
-    layout: "centered",
+    layout: "padded",
   },
   tags: ["autodocs"],
   argTypes: {
@@ -22,13 +22,13 @@ type Story = StoryObj<typeof Badge>;
 export const Primary: Story = {
   args: {
     variant: "primary",
-    label: "Primary Action",
+    children: "Primary Action",
   },
 };
 
 export const Tertiary: Story = {
   args: {
     variant: "tertiary",
-    label: "Tertiary Action",
+    children: "Tertiary Action",
   },
 };
