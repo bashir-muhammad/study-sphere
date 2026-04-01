@@ -98,7 +98,7 @@
   --space-6xl: 40px;
 
   /* --- Responsive text defaults (mobile-first) --- */
-  --text-sm: clamp(0.75rem, 0.875rem, 0.875rem);
+  --text-sm: 0.75rem;
   --text-sm-margin: 1.05rem; /* 16.7px */
   --text-md: 0.875rem;
   --text-md-margin: 1.5rem;
