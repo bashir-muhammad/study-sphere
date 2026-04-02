@@ -56,9 +56,9 @@ const CardDescription = ({
     .filter(Boolean)
     .join(" ");
   return (
-    <p className={combinedClasses} {...props}>
+    <div className={combinedClasses} {...props}>
       {children}
-    </p>
+    </div>
   );
 };
 

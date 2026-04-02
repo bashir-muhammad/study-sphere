@@ -36,8 +36,9 @@
   --color-primary-90: #002115;
 
   /* tertiary */
+  --color-tertiary-10: #FFDBCC;
+  --color-tertiary-20: #f4976c;
   --color-tertiary-50: #88411d;
-  --color-tertiary-10: #f4976c;
 
   /* neutral */
   --color-neutral-5: #f1f1ef;
@@ -97,7 +98,7 @@
   --space-6xl: 40px;
 
   /* --- Responsive text defaults (mobile-first) --- */
-  --text-sm: clamp(0.75rem, 0.875rem, 0.875rem);
+  --text-sm: 0.75rem;
   --text-sm-margin: 1.05rem; /* 16.7px */
   --text-md: 0.875rem;
   --text-md-margin: 1.5rem;
@@ -117,6 +118,15 @@
 
   /* Transitions */
   --transition1: 300ms ease-out;
+
+  /* Shadows */
+  --shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --box-shadow:  0 0 #0000,  0 0 #0000, var(--shadow);
+
+  /* Border Radius */
+  --border-radius: var(--space-8);
+  --border-radius-lg: var(--space-12);
+  --border-radius-full: 100px;
 }
 
 /* TABLET OVERRIDES  ≥ 768px */
@@ -145,7 +155,7 @@
     --text-md: 1.125rem;
     --text-xl: 1.75rem;
     --text-2xl: 3.5rem;
-    --gutter: var(--space-33);
+    --gutter: var(--space-32);
     --screen-padding: var(--space-64);
   }
 }
