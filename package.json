@@ -39,6 +39,9 @@
     "typescript": "^5",
     "vite": "^8.0.0"
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
