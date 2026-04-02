@@ -37,12 +37,11 @@
 }
 
 .icon {
-  border: 2px solid var(--color-primary);
-  background-color: transparent;
+  background-color: var(--color-primary-10);
   color: var(--color-primary);
   display: grid;
   place-items: center;
-  padding: var(--space-12);
+  padding: var(--space-8);
   border-radius: 100%;
   transition: all var(--transition1);
 

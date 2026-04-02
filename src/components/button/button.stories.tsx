@@ -58,6 +58,6 @@ export const Ghost: Story = {
 export const Icon: Story = {
   args: {
     variant: "icon",
-    children: <ListAltCheck />,
+    children: <ListAltCheck width={16} height={16} />,
   },
 };
