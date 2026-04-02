@@ -15,6 +15,7 @@ export interface Deck {
 
 export interface DeckStats {
   deckId: string;
+  title: string;
   totalCards: number;
   correctAnswers: number;
   sessionCount: number;

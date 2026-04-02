@@ -4,6 +4,7 @@
   background-color: var(--color-white);
   padding: var(--space-4xl);
   border-radius: var(--space-xs);
+  box-shadow: var(--box-shadow);
   transition:
     background-color,
     opacity var(--transition1);

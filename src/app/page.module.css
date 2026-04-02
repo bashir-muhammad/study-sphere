@@ -29,3 +29,15 @@
     background-color: transparent;
   }
 }
+
+.cards {
+  display: flex;
+  flex-flow: column;
+  gap: var(--gutter);
+
+  @media (width >= 1024px) {
+    flex-flow: row wrap;
+    flex-basis: 33.33%;
+  }
+
+}
