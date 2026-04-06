@@ -16,62 +16,43 @@
   --space-60: 60px;
   --space-64: 64px;
 
-  /* colors */
-  /* #A9EFE9 */
-  /* #CAE5E2 */
-  /* #334B49 */
-  /* #0F5F5B */
-
-  /* #BEC9C7 */
-
-  --color-primary-5: #f8f9fa;
-  --color-primary-10: #cae5e2;
-  --color-primary-20: #BEC9C7;
-  --color-primary-30: #8fb3a1;
-  --color-primary-40: #759887;
-  --color-primary-50: #0f5f5b;
-  --color-primary-60: #446556;
-  --color-primary-70: #2c4d3f;
-  --color-primary-80: #334b49;
-  --color-primary-90: #002115;
+  /* Colors */
+  --color-teal-70: #0F5F5B;
+  --color-teal-50: #317873;
+  --color-primary-10: color-mix(in srgb, var(--color-teal-50) 10%, transparent);
+  --color-primary-20: color-mix(in srgb, var(--color-teal-50) 20%, transparent);
+  --color-primary-30: color-mix(in srgb, var(--color-teal-50) 30%, transparent);
+  --color-primary-50: color-mix(in srgb, var(--color-teal-50) 50%, transparent);
+  --color-primary-80: color-mix(in srgb, var(--color-teal-50) 80%, transparent);
 
   /* tertiary */
-  --color-tertiary-10: #FFDBCC;
-  --color-tertiary-20: #f4976c;
-  --color-tertiary-50: #88411d;
+  --color-tertiary-10: #ffdbcc;
+  --color-tertiary-50: #f4976c;
+  --color-tertiary-60: #a65832;
+  --color-tertiary-70: #763310;
+  --color-tertiary-50-10: color-mix(in srgb, var(--color-tertiary-50) 10%, transparent);
+  --color-tertiary-50-20: color-mix(in srgb, var(--color-tertiary-50) 20%, transparent);
+  --color-tertiary-50-50: color-mix(in srgb, var(--color-tertiary-50) 50%, transparent);
+  --color-tertiary-50-80: color-mix(in srgb, var(--color-tertiary-50) 80%, transparent);
 
   /* neutral */
-  --color-neutral-5: #f1f1ef;
-  --color-neutral-10: #e2e3e1;
-  --color-neutral-20: #c6c7c5;
-  --color-neutral-30: #aaabaa;
-  --color-neutral-40: #90918f;
-  --color-neutral-50: #767776;
-  --color-neutral-60: #5d5f5d;
-  --color-neutral-70: #454746;
-  --color-neutral-80: #2f3130;
-  --color-neutral-90: #1a1c1b;
+  --color-neutral-10: #f3f4f5;
+  --color-neutral-20: #e1e3e4;
+  --color-neutral-50: #F8F9FA;
+  --color-neutral-80: #3f4947;
+  --color-neutral-90: #191c1d;
 
   /* Color: gray scale */
   --color-white: #fff;
   --color-black: #111;
-  --color-gray-10: rgb(0 0 0 / 10%);
-  --color-gray-20: rgb(0 0 0 / 20%);
-  --color-gray-30: rgb(0 0 0 / 30%);
-  --color-gray-40: rgb(0 0 0 / 40%);
-  --color-gray-50: rgb(0 0 0 / 50%);
-  --color-gray-60: rgb(0 0 0 / 60%);
-  --color-gray-70: rgb(0 0 0 / 70%);
-  --color-gray-80: rgb(0 0 0 / 80%);
-  --color-gray-90: rgb(0 0 0 / 90%);
-  --background: var(--color-primary-5);
-  --foreground: var(--color-gray-80);
-  --color-primary: var(--color-primary-50);
+  --background: var(--color-teal-50-10);
+  --foreground: var(--color-neutral-90);
+  --color-primary: var(--color-teal-50);
   --color-tertiary: var(--color-tertiary-50);
   --linear-gray-gradient: linear-gradient(
     90deg,
-    var(--color-gray-30, rgb(0 0 0 /30%)) 0%,
-    var(--color-gray-50, rgb(0 0 0 / 50%)) 100%
+    var(--color-neutral-20, rgb(0 0 0 /30%)) 0%,
+    var(--color-neutral-80, rgb(0 0 0 / 50%)) 100%
   );
 
   /* --- Typography --- */
