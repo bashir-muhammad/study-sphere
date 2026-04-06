@@ -53,17 +53,25 @@
 
 .alphabet {
   counter-increment: options;
+  padding: var(--space-24);
+  border-radius: var(--space-4);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-white);
+
+  &:hover {
+    background-color: var(--color-primary-10);
+    border-color: var(--color-primary-50);
+  }
 
   & > .radio > .circle {
     width: var(--space-40);
     height: var(--space-40);
-    background-color: var(--color-neutral-10);
+    background-color: var(--color-neutral-20);
     font-size: var(--font-size-sm);
     font-weight: var(--font-bold);
     display: grid;
     place-items: center;
   }
-
 }
 
 :is(.defaultRadio) {
@@ -78,18 +86,15 @@
     color: var(--color-white);
   }
 
-  & .input:focus-visible ~ .circle {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 3px;
-  }
-
   & > .radio > .circle::before {
     content: counter(options, upper-alpha); /* A, B, C… */
-  } 
+  }   
 }
 
 :is(.defaultRadio, .alphabet) {
-  background-color: var(--color-primary);
+  & input:checked ~ .circle {
+    background-color: var(--color-primary);
+  }
 
   & .input:focus-visible ~ .circle {
     outline: 2px solid var(--color-primary);
@@ -103,5 +108,12 @@
   &:has(input:disabled) {
     cursor: not-allowed;
     opacity: 0;
+  }
+}
+
+:is(.alphabet):hover {
+  .radio > .circle {
+    background-color: var(--color-primary);
+    color: var(--color-white);
   }
 }
