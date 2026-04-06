@@ -1,18 +1,43 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, ReactNode, HTMLAttributes } from "react";
 import Styles from "./radio.module.css";
+
+interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  children: ReactNode;
+  variant?: "defaultRadio" | "alphabet";
+}
+
+const RadioFieldset = ({
+  children,
+  className,
+  ...props
+}: {
+  children: ReactNode;
+  className?: string;
+} & HTMLAttributes<HTMLFieldSetElement>) => {
+  const combinedClassName = [Styles.fieldset, className]
+    .filter(Boolean)
+    .join(" ");
+  return (
+    <fieldset className={combinedClassName} {...props}>
+      {children}
+    </fieldset>
+  );
+};
 
 const Radio = ({
   className,
   id,
   children,
+  variant = "defaultRadio",
   ...props
-}: InputHTMLAttributes<HTMLInputElement>) => {
+}: RadioProps) => {
   const inputId = id;
+  const combinedClassName = [Styles[variant], className]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <label
-      htmlFor={inputId}
-      className={[Styles.wrapper, className].filter(Boolean).join(" ")}
-    >
+    <label htmlFor={inputId} className={combinedClassName}>
       <span className={Styles.radio}>
         <input type="radio" id={inputId} className={Styles.input} {...props} />
         <span className={Styles.circle}></span>
@@ -22,4 +47,4 @@ const Radio = ({
   );
 };
 
-export { Radio };
+export { Radio, RadioFieldset };
