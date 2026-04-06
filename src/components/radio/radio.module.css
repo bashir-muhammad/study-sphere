@@ -31,8 +31,7 @@
 
 .circle {
   border-radius: 50%;
-  transition:
-    background-color var(--transition1),
+  transition: background-color var(--transition1);
 }
 
 .defaultRadio {
@@ -50,33 +49,10 @@
     background-color: var(--color-primary);
     box-shadow: inset 0 0 0 6px var(--color-primary-20);
   }
-
-  & input:checked ~ .circle {
-    background-color: var(--color-primary);
-    box-shadow: inset 0 0 0 4px var(--color-white);
-    border: 2px solid var(--color-primary);
-  }
-
-  & .input:focus-visible ~ .circle {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 3px;
-  }
-
-  & .input:disabled ~ .circle {
-    background-color: red;
-    box-shadow: none;
-    cursor: not-allowed;
-  }
 }
 
 .alphabet {
   counter-increment: options;
-
-  & input:checked ~ .circle {
-    background-color: var(--color-primary);
-    box-shadow: none;
-    color: var(--color-white);
-  }
 
   & > .radio > .circle {
     width: var(--space-40);
@@ -88,17 +64,44 @@
     place-items: center;
   }
 
+}
+
+:is(.defaultRadio) {
+  & input:checked ~ .circle {
+    box-shadow: inset 0 0 0 4px var(--color-white);
+    border: 2px solid var(--color-primary);
+  }
+}
+
+:is(.alphabet) {
+  & input:checked ~ .circle {
+    color: var(--color-white);
+  }
+
   & .input:focus-visible ~ .circle {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
   }
-  
+
   & > .radio > .circle::before {
     content: counter(options, upper-alpha); /* A, B, C… */
   } 
 }
 
-.defaultRadio:has(.input:disabled) {
-  cursor: not-allowed;
-  opacity: 0.5;
+:is(.defaultRadio, .alphabet) {
+  background-color: var(--color-primary);
+
+  & .input:focus-visible ~ .circle {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  & .input:disabled ~ .circle {
+    cursor: not-allowed;
+  }
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+    opacity: 0;
+  }
 }
