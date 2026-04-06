@@ -18,13 +18,13 @@ const Learn = () => {
   const deck = state.decks?.find((d) => d.id === params.id);
   const cards = deck?.cards || [];
   return (
-    <div>
+    <main>
       <h1>{deck?.title}</h1>
       <p>{deck?.description}</p>
-      <div className={Styles.question}>
+      <div className={Styles.deckContainer}>
         <Progress value={`${((currentIndex + 1) / cards.length) * 100}%`} />
         <Card>
-          <CardHeader>
+          <CardHeader className={Styles.cardHeader}>
             <p>Quetion No: {currentIndex + 1}</p>
           </CardHeader>
           <CardTitle>{cards[currentIndex].question}</CardTitle>
@@ -60,7 +60,7 @@ const Learn = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

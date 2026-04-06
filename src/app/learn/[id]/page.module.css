@@ -1,7 +1,13 @@
-.question {
+.deckContainer {
   display: flex;
   flex-direction: column;
   gap: var(--space-40);
+}
+
+.cardHeader {
+  margin-bottom: var(--space-24);
+  color: var(--color-neutral-80);
+  font-size: var(--text-sm);
 }
 
 .optionsFieldset {
