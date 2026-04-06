@@ -1,0 +1,11 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40);
+}
+
+.optionsFieldset {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-md);
+}

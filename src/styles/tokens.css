@@ -45,7 +45,7 @@
   /* Color: gray scale */
   --color-white: #fff;
   --color-black: #111;
-  --background: var(--color-teal-50-10);
+  --background: var(--color-neutral-10);
   --foreground: var(--color-neutral-90);
   --color-primary: var(--color-teal-50);
   --color-tertiary: var(--color-tertiary-50);
