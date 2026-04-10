@@ -57,10 +57,12 @@
   border-radius: var(--space-4);
   background-color: var(--color-white);
   border: 1px solid var(--color-white);
+  transition: background-color var(--transition1), border-color var(--transition1), transform var(--transition1);
 
   &:hover {
     background-color: var(--color-primary-10);
     border-color: var(--color-primary-50);
+    transform: scale(0.99);
   }
 
   & > .radio > .circle {

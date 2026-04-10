@@ -18,7 +18,7 @@ const Learn = () => {
   const deck = state.decks?.find((d) => d.id === params.id);
   const cards = deck?.cards || [];
   return (
-    <main>
+    <div>
       <h1>{deck?.title}</h1>
       <p>{deck?.description}</p>
       <div className={Styles.deckContainer}>
@@ -60,7 +60,7 @@ const Learn = () => {
           </Button>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
