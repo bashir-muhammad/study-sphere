@@ -16,7 +16,7 @@ const Footer = ({ className, data, ...props }: FooterProps) => {
   return (
     <footer className={combinedClasses} {...props}>
       <span className={Styles.yellowbar}>
-        {data?.copyright ?? "Q - All rights reserved 2026."}
+        {data?.copyright ?? "Study Sphere - All rights reserved 2026."}
       </span>
       <div className={Styles.links}>
         {data?.links?.map((link) => (

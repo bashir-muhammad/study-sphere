@@ -17,7 +17,7 @@ export default function Home() {
   const { state } = useApp();
 
   return (
-    <main className={Styles.main}>
+    <div className={Styles.page}>
       <h1 className={Styles.title}>Welcome back</h1>
       <p>
         Your focus sanctuary is prepared. You have 3 pending reviews today to
@@ -72,6 +72,6 @@ export default function Home() {
           </Card>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,11 +1,15 @@
 .header {
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding-top: var(--space-32);
-  margin-bottom: var(--space-64);
+  background-color: var(--color-white);
+  padding-block: var(--space-12);
+}
 
-  @media (width >= 768px) {
-    padding-top: var(--space-44);
-  }
+.headerMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -13,24 +17,24 @@
   height: var(--space-52);
 }
 
-.yellowbar {
-  display: block;
-  position: absolute;
-  background-color: var(--color-primary);
-  top: 0;
-  right: 0;
-  height: var(--space-40);
-  width: 120px;
+.navList {
+  display: flex;
+  gap: var(--space-16);
+  list-style: none;
+  background-color: var(--background);
+  padding-inline: var(--space-32);
+  padding-block: var(--space-8);
+  border-radius: var(--border-radius-full);
+}
 
-  @media (width >= 768px) {
-    width: 230px;
-  }
+.navLink {
+  color: var(--color-neutral-90);
+  padding-inline: var(--space-12);
+  line-height: 1;
+  text-box: trim-both cap text;
+  transition: color var(--transition1);
+}
 
-  @media (width >= 1024px) {
-    width: 307px;
-  }
-
-  @media (width >= 1920px) {
-    width: 960px;
-  }
+.navLink:hover {
+  color: var(--color-primary);
 }

@@ -7,6 +7,8 @@ import "@/styles/tokens.css";
 import "@/styles/globals.css";
 import Styles from "./layout.module.css";
 import localData from "@/data/study-sphere.json";
+import { Footer } from "@/components/footer/footer";
+import { Header } from "@/components/header/header";
 
 export const metadata: Metadata = {
   title: "Dimando Quesionnare",
@@ -42,10 +44,14 @@ export default async function RootLayout({
   const config = await getAppData();
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} ${manrope.variable}`}>
-        <div className={Styles.layout}>
+      <body
+        className={`${plusJakartaSans.variable} ${manrope.variable} ${Styles.body}`}
+      >
+        <Header className={Styles.layout} />
+        <main className={Styles.layout}>
           <AppProvider config={config}>{children}</AppProvider>
-        </div>
+        </main>
+        <Footer />
       </body>
     </html>
   );
