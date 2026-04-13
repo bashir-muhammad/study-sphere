@@ -9,10 +9,11 @@ const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
   return (
     <header className={Styles.header} {...props}>
       <div className={`${combinedClasses} ${Styles.headerMain}`}>
-        <div className={Styles.logo}>
-          <Link href={"/"}>{<Logo />}</Link>
-          <span className="sr-only">Logo: Dimando questionnaire</span>
-        </div>
+        <Link className={Styles.logo} href={"/"}>
+          <span className={Styles.logoIcon}>{<Logo />}</span>{" "}
+          <span className={Styles.logoText}>Study Sphere</span>
+        </Link>
+
         <nav>
           <ul className={Styles.navList}>
             <li>

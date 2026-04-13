@@ -57,7 +57,6 @@
 
   /* --- Typography --- */
   --font-body: var(--font-manrope);
-  --font-title: var(--font-plus-jakarta-sans);
   --font-weight-body: 400; /* Regular */
   --line-height-body: 1.6;
   --line-height-title: 1.2;

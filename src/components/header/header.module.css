@@ -13,8 +13,22 @@
 }
 
 .logo {
-  width: var(--space-40);
-  height: var(--space-52);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.logoIcon {
+  min-width: var(--space-44);
+  height: var(--space-44);
+}
+
+.logoText {
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: var(--text-lg);
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
 }
 
 .navList {
