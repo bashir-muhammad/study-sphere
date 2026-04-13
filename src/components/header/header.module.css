@@ -1,7 +1,15 @@
 .header {
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: var(--color-white);
   padding-block: var(--space-12);
+}
+
+.headerMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -9,3 +17,24 @@
   height: var(--space-52);
 }
 
+.navList {
+  display: flex;
+  gap: var(--space-16);
+  list-style: none;
+  background-color: var(--background);
+  padding-inline: var(--space-32);
+  padding-block: var(--space-8);
+  border-radius: var(--border-radius-full);
+}
+
+.navLink {
+  color: var(--color-neutral-90);
+  padding-inline: var(--space-12);
+  line-height: 1;
+  text-box: trim-both cap text;
+  transition: color var(--transition1);
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
