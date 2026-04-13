@@ -144,7 +144,6 @@
 /* DESKTOP OVERRIDES  ≥ 1440px */
 @media (width >= 1440px) {
   :root {
-    --text-md: 1.25rem;
     --text-xl: 2rem;
     --text-2xl: 4rem;
     --space-xs: 12px;
