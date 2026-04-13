@@ -8,6 +8,7 @@ import { RadioFieldset, Radio } from "@/components/radio/radio";
 import ArrowRight from "@/assets/icons/arrow-right.svg";
 import ArrowLeft from "@/assets/icons/arrow-left.svg";
 import { Progress } from "@/components/progress/progress";
+import { PageTitle, PageDescription } from "@/components/page-title/page-title";
 
 import Styles from "./page.module.css";
 
@@ -19,8 +20,10 @@ const Learn = () => {
   const cards = deck?.cards || [];
   return (
     <div>
-      <h1>{deck?.title}</h1>
-      <p>{deck?.description}</p>
+      <PageTitle>{deck?.title}</PageTitle>
+      {deck?.description && (
+        <PageDescription>{deck?.description}</PageDescription>
+      )}
       <div className={Styles.deckContainer}>
         <Progress value={`${((currentIndex + 1) / cards.length) * 100}%`} />
         <Card>

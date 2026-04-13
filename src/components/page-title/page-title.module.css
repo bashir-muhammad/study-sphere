@@ -1,0 +1,8 @@
+.pageTitle {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-8);
+}
+
+.pageDescription {
+  font-size: var(--text-lg);
+}

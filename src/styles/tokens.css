@@ -134,7 +134,7 @@
 :root {
     --text-md: 1.125rem;
     --text-xl: 1.75rem;
-    --text-2xl: 3.5rem;
+    --text-2xl: 2.5rem;
     --gutter: var(--space-32);
     --screen-padding: var(--space-64);
   }
@@ -144,7 +144,7 @@
 @media (width >= 1440px) {
   :root {
     --text-xl: 2rem;
-    --text-2xl: 4rem;
+    --text-2xl: 3rem;
     --space-xs: 12px;
     --space-sm: 16px;
     --space-md: 20px;
