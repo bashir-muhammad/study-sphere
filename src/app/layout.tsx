@@ -48,7 +48,7 @@ export default async function RootLayout({
         className={`${plusJakartaSans.variable} ${manrope.variable} ${Styles.body}`}
       >
         <Header className={Styles.layout} />
-        <main className={Styles.layout}>
+        <main className={`${Styles.layout} ${Styles.main}`}>
           <AppProvider config={config}>{children}</AppProvider>
         </main>
         <Footer />
