@@ -19,12 +19,14 @@ const Learn = () => {
   const deck = state.decks?.find((d) => d.id === params.id);
   const cards = deck?.cards || [];
   return (
-    <div>
-      <PageTitle>{deck?.title}</PageTitle>
-      {deck?.description && (
-        <PageDescription>{deck?.description}</PageDescription>
-      )}
-      <div className={Styles.deckContainer}>
+    <>
+      <header>
+        <PageTitle>{deck?.title}</PageTitle>
+        {deck?.description && (
+          <PageDescription>{deck?.description}</PageDescription>
+        )}
+      </header>
+      <section className={Styles.deckContainer}>
         <Progress value={`${((currentIndex + 1) / cards.length) * 100}%`} />
         <Card>
           <CardHeader className={Styles.cardHeader}>
@@ -62,8 +64,8 @@ const Learn = () => {
             <ArrowRight width={24} height={24} />
           </Button>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
