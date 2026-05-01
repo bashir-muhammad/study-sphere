@@ -30,7 +30,7 @@ const Learn = () => {
         <Progress value={`${((currentIndex + 1) / cards.length) * 100}%`} />
         <Card>
           <CardHeader className={Styles.cardHeader}>
-            <p>Quetion No: {currentIndex + 1}</p>
+            <p>Question No: {currentIndex + 1}</p>
           </CardHeader>
           <CardTitle>{cards[currentIndex].question}</CardTitle>
         </Card>
