@@ -4,47 +4,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Styles from "./main-nav.module.css";
 
-const MainNav = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
+interface MainNavProps extends HTMLAttributes<HTMLElement> {
+  links: {
+    label: string;
+    href: string;
+  }[];
+}
+
+const MainNav = ({ className, links, ...props }: MainNavProps) => {
   const pathname = usePathname();
   const combinedClasses = [className].filter(Boolean).join(" ");
 
   return (
     <nav className={combinedClasses} {...props}>
-      <ul className={Styles.navList}>
-        <li>
-          <Link
-            href={"/"}
-            className={
-              Styles.navLink + (pathname === "/" ? ` ${Styles.active}` : "")
-            }
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"/learn"}
-            className={
-              Styles.navLink +
-              (pathname === "/learn" ? ` ${Styles.active}` : "")
-            }
-          >
-            Learn
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"/create"}
-            className={
-              Styles.navLink +
-              (pathname === "/create" ? ` ${Styles.active}` : "")
-            }
-          >
-            Create deck
-          </Link>
-        </li>
-        <div className={Styles.navHighlight}></div>
-      </ul>
+      {links?.length > 0 && (
+        <ul className={Styles.navList}>
+          {links.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={
+                  Styles.navLink +
+                  (pathname === item.href ? ` ${Styles.active}` : "")
+                }
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+          <div className={Styles.navHighlight}></div>
+        </ul>
+      )}
     </nav>
   );
 };

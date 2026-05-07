@@ -14,7 +14,13 @@ const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
           <span className={Styles.logoIcon}>{<Logo />}</span>{" "}
           <span className={Styles.logoText}>Study Sphere</span>
         </Link>
-        <MainNav />
+        <MainNav
+          links={[
+            { label: "Home", href: "/" },
+            { label: "Learn", href: "/learn" },
+            { label: "Create Deck", href: "/create" },
+          ]}
+        />
       </div>
     </header>
   );
