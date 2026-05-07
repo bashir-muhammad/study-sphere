@@ -1,6 +1,7 @@
 import { HTMLAttributes } from "react";
 import Link from "next/link";
 import Logo from "@/assets/icons/logo.svg";
+import { MainNav } from "../main-nav/main-nav";
 import Styles from "./header.module.css";
 
 const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
@@ -13,27 +14,7 @@ const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
           <span className={Styles.logoIcon}>{<Logo />}</span>{" "}
           <span className={Styles.logoText}>Study Sphere</span>
         </Link>
-
-        <nav>
-          <ul className={Styles.navList}>
-            <li>
-              <Link href={"/"} className={Styles.navLink}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href={"/learn"} className={Styles.navLink}>
-                Learn
-              </Link>
-            </li>
-            <li>
-              <Link href={"/create"} className={Styles.navLink}>
-                Create deck
-              </Link>
-            </li>
-            <div className={Styles.navHighlight}></div>
-          </ul>
-        </nav>
+        <MainNav />
       </div>
     </header>
   );
