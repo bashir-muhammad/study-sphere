@@ -31,6 +31,7 @@ const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
                 Create deck
               </Link>
             </li>
+            <div className={Styles.navHighlight}></div>
           </ul>
         </nav>
       </div>

@@ -37,22 +37,47 @@
 
 .navList {
   display: flex;
-  gap: var(--space-16);
   list-style: none;
+  padding-inline: var(--space-32);
+  padding-block: var(--space-8);
+}
+
+.navLink {
+  padding-inline: var(--space-20);
+  padding-block: var(--space-8);
+  line-height: 1;
+  text-box: trim-both cap text;
+  transition: color var(--transition1);
+  z-index: 1000;
+  position: relative;
+}
+
+.navLink:hover {
+  anchor-name: --active-link;
+  color: var(--color-primary);
+}
+
+.navHighlight {
+  position: absolute;
   background-color: var(--background);
   padding-inline: var(--space-32);
   padding-block: var(--space-8);
   border-radius: var(--border-radius-full);
+  left: anchor(--active-link left);
+  top: anchor(--active-link top);
+  width: anchor-size(--active-link width);
+  height: anchor-size(--active-link height);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition:
+    top var(--transition1),
+    left var(--transition1),
+    width var(--transition1),
+    height var(--transition1),
+    opacity var(--transition2);
 }
 
-.navLink {
-  color: var(--color-neutral-90);
-  padding-inline: var(--space-12);
-  line-height: 1;
-  text-box: trim-both cap text;
-  transition: color var(--transition1);
-}
-
-.navLink:hover {
-  color: var(--color-primary);
+.navList:has(.navLink:hover) .navHighlight {
+  opacity: 1;
 }
