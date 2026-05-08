@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Progress>;
 
 export const Primary: Story = {
   args: {
-    value: "50%",
+    value: 50,
   },
   render: (args) => (
     <div>
@@ -35,7 +35,7 @@ export const Primary: Story = {
 
 export const Tertiary: Story = {
   args: {
-    value: "75%",
+    value: 75,
   },
   render: (args) => (
     <div>

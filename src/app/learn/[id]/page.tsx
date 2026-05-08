@@ -27,7 +27,9 @@ const Learn = () => {
         )}
       </header>
       <section className={Styles.deckContainer}>
-        <Progress value={`${((currentIndex + 1) / cards.length) * 100}%`} />
+        <Progress
+          value={(((currentIndex + 1) / cards.length) * 100).toFixed(0)}
+        />
         <Card>
           <CardHeader className={Styles.cardHeader}>
             <p>Question No: {currentIndex + 1}</p>
