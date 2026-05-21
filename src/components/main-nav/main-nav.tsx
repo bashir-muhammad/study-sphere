@@ -27,6 +27,7 @@ const MainNav = ({ className, links, ...props }: MainNavProps) => {
                   Styles.navLink +
                   (pathname === item.href ? ` ${Styles.active}` : "")
                 }
+                aria-current={pathname === item.href ? "page" : undefined}
               >
                 {item.label}
               </Link>
