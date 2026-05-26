@@ -74,6 +74,19 @@
     display: grid;
     place-items: center;
   }
+
+  &:has([data-correct="false"] ) {
+    border-color: var( --color-tertiary-50-20);
+    background-color: var(--color-tertiary-50-10);
+  }
+
+  &:has([data-correct="true"] ) {
+    border-color: var( --color-primary-80);
+  }
+
+  & [data-correct="false"] ~ .circle {
+    background-color: var(--color-tertiary-10);
+  }
 }
 
 :is(.defaultRadio) {
@@ -90,7 +103,7 @@
 
   & > .radio > .circle::before {
     content: counter(options, upper-alpha); /* A, B, C… */
-  }   
+  }
 }
 
 :is(.defaultRadio, .alphabet) {

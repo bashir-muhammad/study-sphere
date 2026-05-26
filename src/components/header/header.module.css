@@ -4,6 +4,10 @@
   width: 100%;
   background-color: var(--color-white);
   padding-block: var(--space-12);
+
+  @media (width >= 1024px) {
+    padding-block: var(--space-16);
+  }
 }
 
 .headerMain {
@@ -13,28 +17,20 @@
 }
 
 .logo {
-  width: var(--space-40);
-  height: var(--space-52);
-}
-
-.navList {
   display: flex;
-  gap: var(--space-16);
-  list-style: none;
-  background-color: var(--background);
-  padding-inline: var(--space-32);
-  padding-block: var(--space-8);
-  border-radius: var(--border-radius-full);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-12);
 }
 
-.navLink {
-  color: var(--color-neutral-90);
-  padding-inline: var(--space-12);
-  line-height: 1;
-  text-box: trim-both cap text;
-  transition: color var(--transition1);
+.logoIcon {
+  min-width: var(--space-44);
+  height: var(--space-44);
 }
 
-.navLink:hover {
+.logoText {
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: var(--text-lg);
   color: var(--color-primary);
+  font-weight: var(--font-bold);
 }

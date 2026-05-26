@@ -17,7 +17,7 @@
   --space-64: 64px;
 
   /* Colors */
-  --color-teal-70: #0F5F5B;
+  --color-teal-70: #0f5f5b;
   --color-teal-50: #317873;
   --color-primary-10: color-mix(in srgb, var(--color-teal-50) 10%, transparent);
   --color-primary-20: color-mix(in srgb, var(--color-teal-50) 20%, transparent);
@@ -30,15 +30,31 @@
   --color-tertiary-50: #f4976c;
   --color-tertiary-60: #a65832;
   --color-tertiary-70: #763310;
-  --color-tertiary-50-10: color-mix(in srgb, var(--color-tertiary-50) 10%, transparent);
-  --color-tertiary-50-20: color-mix(in srgb, var(--color-tertiary-50) 20%, transparent);
-  --color-tertiary-50-50: color-mix(in srgb, var(--color-tertiary-50) 50%, transparent);
-  --color-tertiary-50-80: color-mix(in srgb, var(--color-tertiary-50) 80%, transparent);
+  --color-tertiary-50-10: color-mix(
+    in srgb,
+    var(--color-tertiary-50) 10%,
+    transparent
+  );
+  --color-tertiary-50-20: color-mix(
+    in srgb,
+    var(--color-tertiary-50) 20%,
+    transparent
+  );
+  --color-tertiary-50-50: color-mix(
+    in srgb,
+    var(--color-tertiary-50) 50%,
+    transparent
+  );
+  --color-tertiary-50-80: color-mix(
+    in srgb,
+    var(--color-tertiary-50) 80%,
+    transparent
+  );
 
   /* neutral */
   --color-neutral-10: #f3f4f5;
   --color-neutral-20: #e1e3e4;
-  --color-neutral-50: #F8F9FA;
+  --color-neutral-50: #f8f9fa;
   --color-neutral-80: #3f4947;
   --color-neutral-90: #191c1d;
 
@@ -57,7 +73,6 @@
 
   /* --- Typography --- */
   --font-body: var(--font-manrope);
-  --font-title: var(--font-plus-jakarta-sans);
   --font-weight-body: 400; /* Regular */
   --line-height-body: 1.6;
   --line-height-title: 1.2;
@@ -88,7 +103,6 @@
   --text-xl-margin: 2.8rem; /* 44.79px */
   --text-2xl: 2rem;
 
-
   /* --- Viewport reference --- */
   --viewport-mobile: 390px;
   --viewport-tablet: 768px;
@@ -99,10 +113,11 @@
 
   /* Transitions */
   --transition1: 300ms ease-out;
+  --transition2: 200ms ease-out;
 
   /* Shadows */
   --shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  --box-shadow:  0 0 #0000,  0 0 #0000, var(--shadow);
+  --box-shadow: 0 0 #0000, 0 0 #0000, var(--shadow);
 
   /* Border Radius */
   --border-radius: var(--space-8);
@@ -132,10 +147,10 @@
 }
 
 @media (width >= 1024px) {
-:root {
+  :root {
     --text-md: 1.125rem;
     --text-xl: 1.75rem;
-    --text-2xl: 3.5rem;
+    --text-2xl: 2.5rem;
     --gutter: var(--space-32);
     --screen-padding: var(--space-64);
   }
@@ -145,7 +160,7 @@
 @media (width >= 1440px) {
   :root {
     --text-xl: 2rem;
-    --text-2xl: 4rem;
+    --text-2xl: 3rem;
     --space-xs: 12px;
     --space-sm: 16px;
     --space-md: 20px;

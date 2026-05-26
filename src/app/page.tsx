@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/card/card";
 import { Progress, ProgressLabel } from "@/components/progress/progress";
+import { PageTitle, PageDescription } from "@/components/page-title/page-title";
 import { Badge } from "@/components/badge/badge";
 import { Button } from "@/components/button/button";
 import ArrowRight from "@/assets/icons/arrow-right.svg";
@@ -18,12 +19,14 @@ export default function Home() {
 
   return (
     <div className={Styles.page}>
-      <h1 className={Styles.title}>Welcome back</h1>
-      <p>
-        Your focus sanctuary is prepared. You have 3 pending reviews today to
-        maintain your momentum.
-      </p>
-      <div className={Styles.cards}>
+      <header>
+        <PageTitle>Welcome back</PageTitle>
+        <PageDescription>
+          Your focus sanctuary is prepared. You have 3 pending reviews today to
+          maintain your momentum.
+        </PageDescription>
+      </header>
+      <section className={Styles.cards}>
         {state.stats.map((stat) => (
           <Card key={stat.deckId} className={Styles.card}>
             <CardHeader>
@@ -44,9 +47,9 @@ export default function Home() {
             </CardDescription>
           </Card>
         ))}
-      </div>
+      </section>
 
-      <div className={Styles.cards}>
+      <section className={Styles.cards}>
         {state.decks?.map((deck) => (
           <Card key={deck.id} className={Styles.card}>
             <CardTitle>{deck.title}</CardTitle>
@@ -71,7 +74,7 @@ export default function Home() {
             </CardFooter>
           </Card>
         ))}
-      </div>
+      </section>
     </div>
   );
 }

@@ -10,16 +10,19 @@ interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
 const RadioFieldset = ({
   children,
   className,
+  legend,
   ...props
 }: {
   children: ReactNode;
   className?: string;
+  legend?: string;
 } & HTMLAttributes<HTMLFieldSetElement>) => {
   const combinedClassName = [Styles.fieldset, className]
     .filter(Boolean)
     .join(" ");
   return (
     <fieldset className={combinedClassName} {...props}>
+      {legend && <legend className={"sr-only"}>{legend}</legend>}
       {children}
     </fieldset>
   );

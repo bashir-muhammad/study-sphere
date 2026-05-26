@@ -3,15 +3,6 @@
   flex-direction: column;
   gap: var(--space-32);
   width: 100%;
-  margin-bottom: calc(var(--space-32) + var(--space-56));
-
-  @media (width >= 768px) {
-    margin-bottom: calc(var(--space-44) + var(--space-56));
-  }
-
-  @media (width >= 1920px) {
-    margin-bottom: calc(var(--space-64) + var(--space-56));
-  }
 }
 
 .title {

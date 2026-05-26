@@ -11,7 +11,7 @@ import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
 
 export const metadata: Metadata = {
-  title: "Dimando Quesionnare",
+  title: "Study Sphere",
   description: "Developed by Muhammad Bashir",
 };
 
@@ -48,7 +48,7 @@ export default async function RootLayout({
         className={`${plusJakartaSans.variable} ${manrope.variable} ${Styles.body}`}
       >
         <Header className={Styles.layout} />
-        <main className={Styles.layout}>
+        <main className={`${Styles.layout} ${Styles.main}`}>
           <AppProvider config={config}>{children}</AppProvider>
         </main>
         <Footer />

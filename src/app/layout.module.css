@@ -10,3 +10,15 @@
   width: 100%;
   max-width: var(--viewport-large-desktop);
 }
+
+.main {
+  padding-block: var(--space-24);
+
+  @media (width >= 768px) {
+    padding-block: var(--space-32);
+  }
+
+  @media (width >= 1024px) {
+    padding-block: var(--space-48);
+  }
+}
