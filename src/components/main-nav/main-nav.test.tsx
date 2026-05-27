@@ -30,14 +30,14 @@ describe("MainNav", () => {
 
     links.forEach((link) => {
       expect(
-        screen.getByRole("link", { name: /${link.label}/i }),
+        screen.getByRole("link", { name: new RegExp(link.label, "i") }),
       ).toHaveAttribute("href", link.href);
     });
   });
 
   it("renders nothing when links array is empty", () => {
-    render(<MainNav links={[]} />);
-    expect(screen.queryByRole("list")).not.toBeInTheDocument();
+    const { container } = render(<MainNav links={[]} />);
+    expect(container).toBeEmptyDOMElement();
   });
 
   it("marks the current path link as active", () => {
