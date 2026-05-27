@@ -9,7 +9,7 @@ interface ProgressProps extends HTMLAttributes<HTMLProgressElement> {
 const Progress = ({
   variant = "primary",
   className,
-  value = 50,
+  value = 0,
 }: ProgressProps) => {
   const combinedClassName = [Styles.progress, Styles[variant], className]
     .filter(Boolean)
@@ -17,7 +17,11 @@ const Progress = ({
 
   return (
     <div className={combinedClassName}>
-      <div className={Styles.progressBar} style={{ width: `${value}%` }}></div>
+      <div
+        className={Styles.progressBar}
+        style={{ width: `${value}%` }}
+        data-testid="progress-bar"
+      ></div>
       <progress className={Styles.progressNative} value={value} max={100}>
         progressed: {value} %
       </progress>
