@@ -9,7 +9,7 @@
   transition:
     background-color var(--transition1),
     opacity var(--transition1);
-    
+
   &:hover {
     opacity: 0.8;
     cursor: pointer;
@@ -22,7 +22,7 @@
   justify-content: space-between;
 }
 
-.completed {
+.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
@@ -39,7 +39,7 @@
   &:hover {
     opacity: 1;
     background-color: var(--color-primary-40);
-  }  
+  }
 }
 
 .primary .description {
@@ -50,8 +50,6 @@
   margin-bottom: var(--text-xl);
   font-size: var(--text-xl);
 }
-
-
 
 .footer {
   display: flex;
