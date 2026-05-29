@@ -13,7 +13,10 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <div className={`${plusJakartaSans.variable} ${manrope.variable}`}>
+      <div
+        className={`${plusJakartaSans.variable} ${manrope.variable}`}
+        style={{ "--background": "#ffffff" } as React.CSSProperties}
+      >
         <Story />
       </div>
     ),
