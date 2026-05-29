@@ -35,7 +35,9 @@ const MainNav = ({ className, links, ...props }: MainNavProps) => {
             </Link>
           </li>
         ))}
-        <div className={Styles.navHighlight}></div>
+        <li className={Styles.highlightItem}>
+          <span className={Styles.navHighlight}></span>
+        </li>
       </ul>
     </nav>
   );

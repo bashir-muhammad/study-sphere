@@ -20,6 +20,10 @@
   color: var(--color-primary);
 }
 
+.highlightItem {
+  display: contents;
+}
+
 .navHighlight {
   position: absolute;
   background-color: var(--background);
