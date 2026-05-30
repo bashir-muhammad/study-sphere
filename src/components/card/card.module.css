@@ -37,8 +37,7 @@
   color: var(--color-white);
 
   &:hover {
-    opacity: 1;
-    background-color: var(--color-primary-40);
+    opacity: 0.8;
   }
 }
 
