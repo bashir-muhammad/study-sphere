@@ -4,16 +4,21 @@ interface RatingGroupProps {
   className?: string;
   value: number;
   max: number;
-  onChange: (value: number) => void;
+  onChange?: (value: number) => void;
 }
 
-const RatingGroup = ({ className, value, max, onChange }: RatingGroupProps) => {
+const RatingGroup = ({
+  className,
+  value,
+  max,
+  onChange = () => {},
+}: RatingGroupProps) => {
   const combinedClasses = [Styles.ratingroup, className]
     .filter(Boolean)
     .join(" ");
   const ratings = Array.from({ length: max }, (_, i) => i + 1);
   return (
-    <ul className={combinedClasses} role="radiogroup">
+    <ul className={combinedClasses} aria-label="Rating Group">
       {ratings.map((num) => (
         <li key={num}>
           <button

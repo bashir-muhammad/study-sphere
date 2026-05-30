@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import Styles from "./card.module.css";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "completed" | "primary";
+  variant?: "default" | "disabled" | "primary";
 }
 
 const Card = ({

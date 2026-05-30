@@ -15,27 +15,30 @@ const MainNav = ({ className, links, ...props }: MainNavProps) => {
   const pathname = usePathname();
   const combinedClasses = [className].filter(Boolean).join(" ");
 
+  if (links.length === 0) {
+    return null;
+  }
   return (
     <nav className={combinedClasses} {...props}>
-      {links?.length > 0 && (
-        <ul className={Styles.navList}>
-          {links.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={
-                  Styles.navLink +
-                  (pathname === item.href ? ` ${Styles.active}` : "")
-                }
-                aria-current={pathname === item.href ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-          <div className={Styles.navHighlight}></div>
-        </ul>
-      )}
+      <ul className={Styles.navList}>
+        {links.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              className={
+                Styles.navLink +
+                (pathname === item.href ? ` ${Styles.active}` : "")
+              }
+              aria-current={pathname === item.href ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+        <li className={Styles.highlightItem}>
+          <span className={Styles.navHighlight}></span>
+        </li>
+      </ul>
     </nav>
   );
 };

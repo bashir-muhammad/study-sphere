@@ -19,7 +19,7 @@ const meta: Meta<typeof Card> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["default", "completed", "result"],
+      options: ["default", "disabled", "primary"],
     },
   },
 };
@@ -47,9 +47,9 @@ export const Default: Story = {
   ),
 };
 
-export const Completed: Story = {
+export const Disabled: Story = {
   render: (args) => (
-    <Card {...args} variant="completed">
+    <Card {...args} variant="disabled">
       <CardTitle>Card Title</CardTitle>
       <CardDescription>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis et

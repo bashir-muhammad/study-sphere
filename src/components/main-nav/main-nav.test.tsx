@@ -3,7 +3,6 @@ import { describe, it, expect, vi } from "vitest";
 
 import { MainNav } from "./main-nav";
 
-// Mock next/navigation
 vi.mock("next/navigation", () => ({
   usePathname: () => "/about",
 }));
@@ -28,19 +27,17 @@ describe("MainNav", () => {
 
   it("renders correct href for each link", () => {
     render(<MainNav links={links} />);
-    expect(screen.getByRole("link", { name: /home/i })).toHaveAttribute(
-      "href",
-      "/",
-    );
-    expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute(
-      "href",
-      "/about",
-    );
+
+    links.forEach((link) => {
+      expect(
+        screen.getByRole("link", { name: new RegExp(link.label, "i") }),
+      ).toHaveAttribute("href", link.href);
+    });
   });
 
   it("renders nothing when links array is empty", () => {
-    render(<MainNav links={[]} />);
-    expect(screen.queryByRole("list")).not.toBeInTheDocument();
+    const { container } = render(<MainNav links={[]} />);
+    expect(container).toBeEmptyDOMElement();
   });
 
   it("marks the current path link as active", () => {
