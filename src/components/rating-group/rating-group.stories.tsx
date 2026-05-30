@@ -17,3 +17,11 @@ type Story = StoryObj<typeof RatingGroup>;
 export const Default: Story = {
   render: (args) => <RatingGroup {...args} max={5} />,
 };
+
+export const WithValue: Story = {
+  args: {
+    value: 2,
+  },
+
+  render: (args) => <RatingGroup {...args} max={5} />,
+};

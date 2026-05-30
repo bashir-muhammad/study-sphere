@@ -18,7 +18,7 @@ const RatingGroup = ({
     .join(" ");
   const ratings = Array.from({ length: max }, (_, i) => i + 1);
   return (
-    <ul className={combinedClasses} role="radiogroup">
+    <ul className={combinedClasses} aria-label="Rating Group">
       {ratings.map((num) => (
         <li key={num}>
           <button
