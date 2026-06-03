@@ -6,8 +6,10 @@ const PageTitle = ({
   className,
   ...props
 }: HTMLAttributes<HTMLHeadingElement>) => {
+  const combinedClassName = `${Styles.pageTitle} ${className || ""}`.trim();
+
   return (
-    <h1 className={`${Styles.pageTitle} ${className}`} {...props}>
+    <h1 className={combinedClassName} {...props}>
       {children}
     </h1>
   );
@@ -18,8 +20,11 @@ const PageDescription = ({
   className,
   ...props
 }: HTMLAttributes<HTMLParagraphElement>) => {
+  const combinedClassName =
+    `${Styles.pageDescription} ${className || ""}`.trim();
+
   return (
-    <p className={`${Styles.pageDescription} ${className}`} {...props}>
+    <p className={combinedClassName} {...props}>
       {children}
     </p>
   );
