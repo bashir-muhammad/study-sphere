@@ -4,15 +4,13 @@ import { useApp } from "@/context/app-context";
 import {
   Card,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/card/card";
 import { Progress, ProgressLabel } from "@/components/progress/progress";
 import { PageTitle, PageDescription } from "@/components/page-title/page-title";
 import { Badge } from "@/components/badge/badge";
-import { Button } from "@/components/button/button";
-import ArrowRight from "@/assets/icons/arrow-right.svg";
+import { DecksList } from "@/app/modules/decks-list/decks-list";
 
 export default function Home() {
   const { state } = useApp();
@@ -48,33 +46,7 @@ export default function Home() {
           </Card>
         ))}
       </section>
-
-      <section className={Styles.cards}>
-        {state.decks?.map((deck) => (
-          <Card key={deck.id} className={Styles.card}>
-            <CardTitle>{deck.title}</CardTitle>
-            <CardDescription>
-              <p>{deck.description}</p>
-            </CardDescription>
-            <CardFooter>
-              <span>
-                {deck.cards.length} {deck.cards.length === 1 ? "Card" : "Cards"}
-              </span>
-              <Button
-                variant="icon"
-                size="sm"
-                className={Styles.cardlink}
-                as="link"
-                href={`/learn/${deck.id}`}
-                aria-label={`Open: ${deck.title}`}
-              >
-                <ArrowRight width={16} height={16} />
-                <span className="sr-only">Open: {deck.title}</span>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </section>
+      {state.decks.length > 0 && <DecksList decks={state.decks} />}
     </div>
   );
 }
