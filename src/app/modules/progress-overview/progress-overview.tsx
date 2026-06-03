@@ -17,6 +17,7 @@ interface ProgressOverviewProps {
 }
 
 const ProgressOverview = ({ stats }: ProgressOverviewProps) => {
+  if (!stats.length) return null;
   return (
     <section className={Styles.progressOverview}>
       {stats.map((stat) => (
@@ -31,10 +32,7 @@ const ProgressOverview = ({ stats }: ProgressOverviewProps) => {
             </p>
           </CardDescription>
           <CardFooter>
-            <Progress
-              value={(stat.correctAnswers / stat.totalCards) * 100}
-              variant="primary"
-            />
+            <Progress value={stat.score} variant="primary" />
             <Button
               variant="icon"
               size="sm"
