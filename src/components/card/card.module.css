@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: var(--space-8);
   background-color: var(--color-white);
   padding: var(--space-4xl);
   border-radius: var(--space-xs);
@@ -53,6 +54,7 @@
 .footer {
   display: flex;
   flex-direction: row;
+  gap: var(--space-12);
   align-items: center;
   justify-content: space-between;
   font-size: var(--text-sm);
