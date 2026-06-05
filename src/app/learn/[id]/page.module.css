@@ -4,6 +4,10 @@
   gap: var(--space-40);
 }
 
+.progressContainer {
+  padding-top: var(--space-24);
+}
+
 .cardHeader {
   margin-bottom: var(--space-24);
   color: var(--color-neutral-80);
