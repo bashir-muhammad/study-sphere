@@ -71,6 +71,7 @@ const Learn = () => {
                 value={option}
                 checked={selectedOption === option}
                 data-correct={dataCorrect}
+                disabled={selectedOption !== ""}
                 onChange={handleOptionChange}
               >
                 {option}
