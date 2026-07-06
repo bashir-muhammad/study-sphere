@@ -3,8 +3,6 @@ import { createContext, useContext, useReducer } from "react";
 import type { ReactNode } from "react";
 import { RootAppData } from "@/types/config";
 
-
-
 const AppContext = createContext<{
   state: RootAppData;
 } | null>(null);
@@ -22,7 +20,7 @@ export function AppProvider({
 }) {
   const [state] = useReducer(appReducer, {
     siteConfig: config.siteConfig,
-    decks: config.decks,
+    studySets: config.studySets,
     navigation: config.navigation,
     stats: config.stats,
   });
