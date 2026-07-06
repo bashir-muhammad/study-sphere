@@ -18,7 +18,7 @@ const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
           links={[
             { label: "Home", href: "/" },
             { label: "Learn", href: "/learn" },
-            { label: "Create Deck", href: "/create" },
+            { label: "Create Deck", href: "/study-sets/create" },
           ]}
         />
       </div>

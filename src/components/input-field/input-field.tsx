@@ -27,7 +27,7 @@ interface SelectProps {
   options: SelectOption[];
 }
 
-const InputField = ({ id, value, onChange, placeholder }: InputFieldProps) => {
+const TextInput = ({ id, value, onChange, placeholder }: InputFieldProps) => {
   return (
     <input
       id={id}
@@ -100,4 +100,4 @@ const Select = ({ id, value, onChange, options }: SelectProps) => {
   );
 };
 
-export { FormField, InputField, Label, Select, TextArea };
+export { FormField, TextInput, Label, Select, TextArea };
