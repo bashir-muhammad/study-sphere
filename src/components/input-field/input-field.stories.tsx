@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { InputField, TextArea, Label, FormField, Select } from "./input-field";
+import { TextInput, TextArea, Label, FormField, Select } from "./input-field";
 
-const inputFieldMeta: Meta<typeof InputField> = {
-  title: "Components/InputField",
-  component: InputField,
+const inputFieldMeta: Meta<typeof TextInput> = {
+  title: "Components/TextInput",
+  component: TextInput,
   parameters: {
     layout: "padded",
   },
@@ -14,9 +14,9 @@ const inputFieldMeta: Meta<typeof InputField> = {
 };
 
 export default inputFieldMeta;
-type InputFieldStory = StoryObj<typeof InputField>;
+type InputFieldStory = StoryObj<typeof TextInput>;
 
-export const TextInput: InputFieldStory = {
+export const TextInputDefault: InputFieldStory = {
   args: {
     placeholder: "Enter text here...",
     value: "",
@@ -51,7 +51,7 @@ export const FormFieldDefault: InputFieldStory = {
   },
   render: ({ placeholder, value }) => (
     <FormField id="input-field-default" label="Form Field Label">
-      <InputField placeholder={placeholder} value={value} />
+      <TextInput placeholder={placeholder} value={value} />
     </FormField>
   ),
 };

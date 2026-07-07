@@ -1,8 +1,6 @@
 # Questionnaire Application
 
-
 ## Architecture and Design Decisions
-
 
 ## Component Library / Storybook
 
@@ -16,9 +14,7 @@
 
 ## Known issues
 
-
 ## Link
-
 
 ## Getting Started
 
