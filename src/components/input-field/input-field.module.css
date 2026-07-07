@@ -1,0 +1,21 @@
+.input,
+.textarea,
+.select {
+  font-size: var(--text-md);
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--color-neutral-20);
+  border-radius: var(--border-radius-4);
+  padding: var(--space-12);
+  color: var(--foreground);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: var(--space-8);
+}

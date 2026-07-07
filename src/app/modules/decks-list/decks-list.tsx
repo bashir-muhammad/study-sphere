@@ -7,10 +7,10 @@ import {
 import { Button } from "@/components/button/button";
 import ArrowRight from "@/assets/icons/arrow-right.svg";
 import Styles from "./decks-list.module.css";
-import { Deck } from "@/types/config";
+import { StudySet } from "@/types/config";
 
 interface DecksListProps {
-  decks: Deck[];
+  decks: StudySet[];
 }
 
 const DecksList = ({ decks }: DecksListProps) => {

@@ -1,5 +1,5 @@
 {
-  "decks": [
+  "studySets": [
     {
       "id": "deck-cosmology-001",
       "title": "Secrets of the Cosmos",
@@ -204,7 +204,7 @@
   "navigation": {
     "header": [
       { "label": "Library", "path": "/", "icon": "LibraryIcon" },
-      { "label": "Create", "path": "/create", "icon": "PlusIcon" },
+      { "label": "Create", "path": "/study-sets/create", "icon": "PlusIcon" },
       { "label": "Dashboard", "path": "/dashboard", "icon": "ChartIcon" }
     ],
     "footer": [

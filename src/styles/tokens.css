@@ -120,7 +120,8 @@
   --box-shadow: 0 0 #0000, 0 0 #0000, var(--shadow);
 
   /* Border Radius */
-  --border-radius: var(--space-8);
+  --border-radius-4: var(--space-4);
+  --border-radius-8: var(--space-8);
   --border-radius-lg: var(--space-12);
   --border-radius-full: 100px;
 }

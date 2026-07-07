@@ -73,6 +73,10 @@ h3 {
   margin-bottom: var(--space-xl);
 }
 
+input {
+  font-family: var(--font-body);
+}
+
 .sr-only {
   position: absolute;
   left: -10000px;

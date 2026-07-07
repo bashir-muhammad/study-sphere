@@ -18,7 +18,7 @@ export default function Home() {
         </PageDescription>
       </header>
       {state.stats.length > 0 && <ProgressOverview stats={state.stats} />}
-      {state.decks.length > 0 && <DecksList decks={state.decks} />}
+      {state.studySets.length > 0 && <DecksList decks={state.studySets} />}
     </div>
   );
 }
