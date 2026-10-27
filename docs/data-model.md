@@ -9,7 +9,7 @@ Entities, relationships, and rules. For user flows and architecture see [flow.md
 - Order inside a set uses an explicit `position`.
 - Progress is stored per user and per card, so one public set can be studied by many users.
 - `cardCount` is denormalized on the set so lists do not need to count rows.
-- Persisted sessions cover signed-in users and every study mode. Quiz attempts are sessions with `mode: 'test'`; guest sessions are temporary and are not stored.
+- Persisted `StudySession` records cover signed-in users and every study mode. Guest flashcard and Learn state stays in browser session storage; guest quizzes use a separate short-lived server-side attempt so scoring remains trustworthy.
 - Database types, Zod schemas, and UI view models are separate.
 
 ## 2. Entity relationship diagram
@@ -160,14 +160,17 @@ interface SetTag {
 - A draft cannot be `unlisted` or `public`. Enforce this in validation and with a database check constraint.
 - Publishing requires a title and at least 2 cards.
 - Who can see what is described in [flow.md](flow.md#4-who-can-see-what).
-- Anyone can study published public sets, and unlisted sets with the link, without signing in. Guest study state is temporary and is not persisted as a `StudySession`, `SessionAnswer`, or `CardProgress`.
+- Anyone can study published public sets, and unlisted sets with the link, without signing in.
+- Signed-in session and progress data is stored in the database. Guest flashcard and Learn progress stays in browser `sessionStorage` for the current tab and is discarded when that tab's session ends, with a 24-hour maximum age.
+- Guest quiz attempts are held server-side only as needed for server-authoritative scoring. They expire after one hour, are deleted after submission or expiry, and are not represented by persistent `StudySession`, `SessionAnswer`, or `CardProgress` records.
+- Browser-stored answers and progress are untrusted input. Never use them to calculate quiz scores or update a signed-in user's persistent progress without server-side validation.
 
 ### Progress (Learn mode)
 
 - A card starts in box 1 and is due immediately.
 - Correct answer: move up one box. Wrong answer: back to box 1.
 - Review intervals by box: 0, 1, 3, 7, and 14 days. `dueAt = now + interval(box)`.
-- Signed-in users have persistent `CardProgress`. Guests can use Learn in a temporary session, but progress is not retained after that session.
+- Signed-in users have persistent `CardProgress`. Guests can use Learn with temporary browser session state, but it is not retained after the tab session ends (and has a 24-hour maximum age).
 
 ## 6. Constraints and indexes
 

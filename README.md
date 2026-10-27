@@ -104,7 +104,7 @@ Diagrams and details are in [docs/flow.md](docs/flow.md).
 - **A. Study a set (Flashcards):** Browse, open a set, flip a card, mark known or unknown, move to the next card, finish, view the summary, review mistakes.
 - **B. Create a set:** Sign in, enter title and description, add terms and definitions, validate, save draft, preview, publish.
 - **C. Take a quiz:** Open a set, start an attempt, answer questions, submit, score on the server, show correct answers and the cards that were missed.
-- **D. Learn (spaced repetition):** Open a set, start Learn, answer the cards that are due, the server updates each card's box and next due date, finish with a summary.
+- **D. Learn (spaced repetition):** Open a set and start Learn. Signed-in users review due cards and save box/due-date updates on the server; guests can study with temporary browser-session progress that is not saved to an account.
 
 ## Non-functional requirements
 

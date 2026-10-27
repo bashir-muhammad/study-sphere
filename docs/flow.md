@@ -19,8 +19,8 @@ flowchart TD
     G --> H[Review cards or mistakes]
     H --> E
     D --> S{Signed in?}
-    S -->|Yes| P[Save progress and history]
-    S -->|No| T[Study without saving progress]
+    S -->|Yes| P[Save progress and history in database]
+    S -->|No| T[Keep temporary progress in browser session]
     P --> J
     A --> I[Sign in]
     I --> J[Dashboard]
@@ -31,7 +31,7 @@ flowchart TD
     N --> D
 ```
 
-Anyone can open and study published public sets without signing in. Unlisted sets can also be studied by anyone with the link; private sets and drafts are owner-only. Guests can complete flashcard, Learn, and quiz sessions, but their progress and session history are not saved. Guest Learn sessions treat the set's cards as available for that session and keep answers only in temporary session state. Signing in enables saved, cross-session Learn progress and history.
+Anyone can open and study published public sets without signing in. Unlisted sets can also be studied by anyone with the link; private sets and drafts are owner-only. Signed-in users' progress and session history are saved in the database. Guest flashcard and Learn progress is kept in browser `sessionStorage` for the current tab, with a 24-hour maximum age, and is not saved to the database or transferred to an account. Guest quiz answers and progress are also temporary, but quiz scoring uses a short-lived server-side attempt so the browser cannot determine its own score. Guest quiz attempts expire after one hour and are deleted; they are not account history. Signing in enables saved, cross-session Learn progress and history.
 
 ## 2. Quiz flow: scoring on the server
 
@@ -44,20 +44,25 @@ sequenceDiagram
     B->>A: startQuiz(setId)
     A->>A: verify set is published and accessible
     A->>D: load cards
-    opt Signed-in user
+    alt Signed-in user
         A->>D: create StudySession (mode: test)
+    else Guest
+        A->>D: create expiring guest quiz attempt
     end
     A-->>B: questions without correct answers
     B->>B: user answers each question
     B->>A: submitQuiz(sessionId or guest token, answers)
-    A->>D: load cards and compare answers
-    opt Signed-in user
-        A->>D: save answers, update progress, close session
+    A->>D: load attempt snapshot and compare answers
+    alt Signed-in user
+        A->>D: save answers and score, close session
+    else Guest
+        A->>D: return score without account history or progress
+        A->>D: delete guest attempt immediately or on expiry
     end
     A-->>B: score, correct answers, missed cards
 ```
 
-The client never decides the score. Multiple-choice options are sent to the client, but the correct option is only revealed in the result. A guest receives the result without a persisted session or answer history. Guest tokens, if used to bind a quiz to its questions, must not grant access to private sets or expose correct answers.
+The client never decides the score. Multiple-choice options are sent to the client, but the correct option is only revealed in the result. A guest token is an unguessable, short-lived capability for that quiz attempt only; it must not grant access to private sets or expose correct answers. Guest answer state in the browser is for continuity only and is never authoritative for scoring. Quiz results do not update Learn-mode `CardProgress`; only Learn answers do. If a guest attempt expires or is deleted before submission, the guest must start a new quiz.
 
 ## 3. Routes
 
@@ -92,7 +97,7 @@ Use `/sets` as the canonical public resource name: it is concise, reads naturall
 | Published and unlisted | Yes   | With the link         | With the link | No                |
 | Published and public   | Yes   | Yes                   | Yes           | Yes               |
 
-Visitors may study published public and unlisted sets without an account. Unlisted means not discoverable, not confidential: anyone with the link can share it. Every read and write checks access on the server. Hiding a button in the UI is not authorization. Guest study state is temporary and is not written to `StudySession`, `SessionAnswer`, or `CardProgress`.
+Visitors may study published public and unlisted sets without an account. Unlisted means not discoverable, not confidential: anyone with the link can share it. Every read and write checks access on the server. Hiding a button in the UI is not authorization. Guest flashcard and Learn progress is temporary browser session state and is not written to `StudySession`, `SessionAnswer`, or `CardProgress`. Guest quiz attempts are the exception: the server keeps only the short-lived attempt needed to score securely, then deletes it; it does not become account history or persistent progress.
 
 ## 5. Technical architecture
 
