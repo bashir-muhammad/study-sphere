@@ -17,7 +17,7 @@ Study Sphere helps people learn and retain knowledge through customizable flashc
 ## Status
 
 - [x] Tooling: Next.js, TypeScript, CSS Modules, Storybook, ESLint, Stylelint, Prettier
-- [ ] Vitest and Testing Library set up
+- [x] Vitest and Testing Library set up
 - [ ] Phase 1: core UI components in Storybook (with mock data)
 - [ ] Phase 2: database, authentication, create/edit sets
 - [ ] Phase 3: study modes (Flashcards, Learn, Test) with unit-tested logic
@@ -127,7 +127,6 @@ Diagrams and details are in [docs/flow.md](docs/flow.md).
 
 ## Architecture and design decisions
 
-- Server components are the default. `use client` is used only for interactive parts (card flip, study session, forms).
 - Study logic is written as pure functions with no React, so it is easy to test.
 - Quizzes are scored on the server so the client never decides the result.
 - Database types, validation schemas, and UI view models are kept separate.
@@ -190,20 +189,17 @@ AUTH_GITHUB_SECRET=
 
 ## Available scripts
 
-| Script                 | Description                       |
-| ---------------------- | --------------------------------- |
-| `pnpm dev`             | Start the development server      |
-| `pnpm build`           | Create a production build         |
-| `pnpm start`           | Run the production server         |
-| `pnpm lint`            | Run ESLint                        |
-| `pnpm lint:style`      | Run Stylelint                     |
-| `pnpm format`          | Format with Prettier              |
-| `pnpm storybook`       | Run Storybook on port 6006        |
-| `pnpm build-storybook` | Build a static Storybook          |
-| `pnpm test`            | Run Vitest (planned)              |
-| `pnpm typecheck`       | Run `tsc --noEmit` (planned)      |
-| `pnpm test:e2e`        | Run Playwright (planned)          |
-| `pnpm db:migrate`      | Run database migrations (planned) |
+| Script                 | Description                  |
+| ---------------------- | ---------------------------- |
+| `pnpm dev`             | Start the development server |
+| `pnpm build`           | Create a production build    |
+| `pnpm start`           | Run the production server    |
+| `pnpm lint`            | Run ESLint                   |
+| `pnpm lint:style`      | Run Stylelint                |
+| `pnpm format`          | Format with Prettier         |
+| `pnpm storybook`       | Run Storybook on port 6006   |
+| `pnpm build-storybook` | Build a static Storybook     |
+| `pnpm test`            | Run Vitest (planned)         |
 
 ## Known issues and limitations
 
