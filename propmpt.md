@@ -4,7 +4,7 @@ Create a full design system for the following project:
 
 **Core Features:**
 
-- **Home Page** - Browse and manage your study decks with quick access to create new decks and view your dashboard
+- **Home Page** - Browse and manage your study sets with quick access to create new sets and view your dashboard
 
 - **Deck Creation** - Manually create flashcards with questions, answers, and multiple-choice options that are shuffled and validated
 
@@ -16,7 +16,7 @@ Create a full design system for the following project:
 
 **Technical Highlights:**
 
-- localStorage-based persistence for decks and study sessions (no auth required, all data stays in browser)
+- localStorage-based persistence for sets and study sessions (no auth required, all data stays in browser)
 
 - Modern UI with gradient headers, smooth card animations, and a cohesive color system (indigo primary, amber accent)
 
@@ -30,7 +30,7 @@ Create a full design system for the following project:
 
 - `/` - Home with deck list
 
-- `/create` - Build new decks
+- `/create` - Build new set
 
 - `/learn/[id]` - Study with flip cards and multiple choice
 

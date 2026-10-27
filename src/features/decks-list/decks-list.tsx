@@ -10,33 +10,33 @@ import Styles from "./decks-list.module.css";
 import { StudySet } from "@/types/config";
 
 interface DecksListProps {
-  decks: StudySet[];
+  sets: StudySet[];
 }
 
-const DecksList = ({ decks }: DecksListProps) => {
-  if (!decks.length) return null;
+const DecksList = ({ sets }: DecksListProps) => {
+  if (!sets.length) return null;
   return (
     <section className={Styles.decksList}>
-      {decks.map((deck) => (
-        <Card key={deck.id} className={Styles.card}>
-          <CardTitle>{deck.title}</CardTitle>
+      {sets.map((set) => (
+        <Card key={set.id} className={Styles.card}>
+          <CardTitle>{set.title}</CardTitle>
           <CardDescription>
-            <p>{deck.description}</p>
+            <p>{set.description}</p>
           </CardDescription>
           <CardFooter>
             <span>
-              {deck.cards.length} {deck.cards.length === 1 ? "Card" : "Cards"}
+              {set.cards.length} {set.cards.length === 1 ? "Card" : "Cards"}
             </span>
             <Button
               variant="icon"
               size="sm"
               className={Styles.deckLink}
               as="link"
-              href={`/learn/${deck.id}`}
-              aria-label={`Open: ${deck.title}`}
+              href={`/sets/learn/${set.id}`}
+              aria-label={`Open: ${set.title}`}
             >
               <ArrowRight width={16} height={16} />
-              <span className="sr-only">Open: {deck.title}</span>
+              <span className="sr-only">Open: {set.title}</span>
             </Button>
           </CardFooter>
         </Card>
