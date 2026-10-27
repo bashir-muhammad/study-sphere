@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { DecksList } from "./decks-list";
-import { Deck } from "@/types/config";
+import { StudySet } from "@/types/config";
 
 describe("DecksList", () => {
-  const decks = [
+  const sets = [
     {
       id: "deck-cosmology-001",
       title: "Secrets of the Cosmos",
@@ -24,10 +24,10 @@ describe("DecksList", () => {
         },
       ],
     },
-  ] as Deck[];
+  ] as StudySet[];
 
   it("renders a list of decks", () => {
-    render(<DecksList decks={decks} />);
+    render(<DecksList sets={sets} />);
 
     expect(screen.getByText("Secrets of the Cosmos")).toBeInTheDocument();
     expect(
@@ -36,22 +36,22 @@ describe("DecksList", () => {
   });
 
   it("renders nothing when there are no decks", () => {
-    const { container } = render(<DecksList decks={[]} />);
+    const { container } = render(<DecksList sets={[]} />);
     expect(container).toBeEmptyDOMElement();
   });
 
   it("add correct url to the deck link", () => {
-    render(<DecksList decks={decks} />);
+    render(<DecksList sets={sets} />);
 
     const link = screen.getByRole("link", {
       name: /Open: Secrets of the Cosmos/i,
     });
-    expect(link).toHaveAttribute("href", "/learn/deck-cosmology-001");
+    expect(link).toHaveAttribute("href", "/sets/learn/deck-cosmology-001");
   });
 
   it("renders all decks in the list", () => {
     const multipleDecks = [
-      ...decks,
+      ...sets,
       {
         id: "deck-quantum-001",
         title: "Quantum Mechanics",
@@ -66,9 +66,9 @@ describe("DecksList", () => {
           },
         ],
       },
-    ] as Deck[];
+    ] as StudySet[];
 
-    render(<DecksList decks={multipleDecks} />);
+    render(<DecksList sets={multipleDecks} />);
 
     expect(screen.getByText("Secrets of the Cosmos")).toBeInTheDocument();
     expect(screen.getByText("Quantum Mechanics")).toBeInTheDocument();
