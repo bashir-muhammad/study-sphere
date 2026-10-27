@@ -9,7 +9,7 @@ Entities, relationships, and rules. For user flows and architecture see [flow.md
 - Order inside a set uses an explicit `position`.
 - Progress is stored per user and per card, so one public set can be studied by many users.
 - `cardCount` is denormalized on the set so lists do not need to count rows.
-- One session table covers every study mode. Quiz attempts are sessions with `mode: 'test'`.
+- Persisted sessions cover signed-in users and every study mode. Quiz attempts are sessions with `mode: 'test'`; guest sessions are temporary and are not stored.
 - Database types, Zod schemas, and UI view models are separate.
 
 ## 2. Entity relationship diagram
@@ -87,7 +87,7 @@ interface CardProgress {
 
 interface StudySession {
   id: ID;
-  userId: ID | null; // null for anonymous visitors (not saved) if you choose to store them
+  userId: ID; // persisted sessions belong to signed-in users
   setId: ID;
   mode: "flashcards" | "learn" | "test" | "match";
   startedAt: Date;
@@ -160,13 +160,14 @@ interface SetTag {
 - A draft cannot be `unlisted` or `public`. Enforce this in validation and with a database check constraint.
 - Publishing requires a title and at least 2 cards.
 - Who can see what is described in [flow.md](flow.md#4-who-can-see-what).
+- Anyone can study published public sets, and unlisted sets with the link, without signing in. Guest study state is temporary and is not persisted as a `StudySession`, `SessionAnswer`, or `CardProgress`.
 
 ### Progress (Learn mode)
 
 - A card starts in box 1 and is due immediately.
 - Correct answer: move up one box. Wrong answer: back to box 1.
 - Review intervals by box: 0, 1, 3, 7, and 14 days. `dueAt = now + interval(box)`.
-- Only signed-in users have `CardProgress`.
+- Signed-in users have persistent `CardProgress`. Guests can use Learn in a temporary session, but progress is not retained after that session.
 
 ## 6. Constraints and indexes
 

@@ -10,14 +10,18 @@ flowchart TD
     A[Landing page] --> B[Browse study sets]
     B --> C[Search or filter]
     C --> D[Study set detail]
-    D --> E[Flashcard session]
-    D --> F[Quiz session]
-    D --> L2[Learn session]
+    D --> E[Study with flashcards]
+    D --> F[Learn session]
+    D --> Q[Quiz session]
     E --> G[Session summary]
     F --> G
-    L2 --> G
-    G --> H[Review mistakes]
+    Q --> G
+    G --> H[Review cards or mistakes]
     H --> E
+    D --> S{Signed in?}
+    S -->|Yes| P[Save progress and history]
+    S -->|No| T[Study without saving progress]
+    P --> J
     A --> I[Sign in]
     I --> J[Dashboard]
     J --> K[My study sets]
@@ -27,7 +31,7 @@ flowchart TD
     N --> D
 ```
 
-Visitors can study public sets without an account. Progress (Learn mode, starred cards, history) is saved only for signed-in users.
+Anyone can open and study published public sets without signing in. Unlisted sets can also be studied by anyone with the link; private sets and drafts are owner-only. Guests can complete flashcard, Learn, and quiz sessions, but their progress and session history are not saved. Guest Learn sessions treat the set's cards as available for that session and keep answers only in temporary session state. Signing in enables saved, cross-session Learn progress and history.
 
 ## 2. Quiz flow: scoring on the server
 
@@ -38,30 +42,36 @@ sequenceDiagram
     participant D as Database
 
     B->>A: startQuiz(setId)
-    A->>D: load cards, create StudySession (mode: test)
-    A-->>B: sessionId and questions (no correct answers)
+    A->>A: verify set is published and accessible
+    A->>D: load cards
+    opt Signed-in user
+        A->>D: create StudySession (mode: test)
+    end
+    A-->>B: questions without correct answers
     B->>B: user answers each question
-    B->>A: submitQuiz(sessionId, answers)
-    A->>D: load cards, compare answers
-    A->>D: save SessionAnswer rows, update CardProgress, close session
+    B->>A: submitQuiz(sessionId or guest token, answers)
+    A->>D: load cards and compare answers
+    opt Signed-in user
+        A->>D: save answers, update progress, close session
+    end
     A-->>B: score, correct answers, missed cards
 ```
 
-The client never decides the score. Multiple-choice options are sent to the client, but the correct option is only revealed in the result.
+The client never decides the score. Multiple-choice options are sent to the client, but the correct option is only revealed in the result. A guest receives the result without a persisted session or answer history. Guest tokens, if used to bind a quiz to its questions, must not grant access to private sets or expose correct answers.
 
 ## 3. Routes
 
-Route groups such as `(public)` organize the code and layouts. They do not appear in the URL.
+Use `/sets` as the canonical public resource name: it is concise, reads naturally in URLs, and avoids making every route repeat “study.” Keep `/learn` as the name of the specific spaced-repetition mode; “study” is the broader activity that includes flashcards, Learn, and tests. Use `/my-sets` for the signed-in owner's management area. Route groups such as `(public)` organize the code and layouts. They do not appear in the URL.
 
 | URL                        | Group         | Purpose                                        | Access                                          |
 | -------------------------- | ------------- | ---------------------------------------------- | ----------------------------------------------- |
 | `/`                        | `(public)`    | Landing page                                   | Everyone                                        |
 | `/sets`                    | `(public)`    | Browse and search public sets (`?q=`, `?tag=`) | Everyone                                        |
 | `/sets/[setId]`            | `(public)`    | Set detail                                     | Depends on visibility, see below                |
-| `/sets/[setId]/flashcards` | `(public)`    | Flashcard session                              | Same as set detail                              |
-| `/sets/[setId]/learn`      | `(public)`    | Learn session                                  | Same as set detail, progress saved if signed in |
-| `/sets/[setId]/test`       | `(public)`    | Quiz session                                   | Same as set detail                              |
-| `/sessions/[sessionId]`    | `(dashboard)` | Session summary and review mistakes            | Session owner                                   |
+| `/sets/[setId]/flashcards` | `(public)`    | Flashcard study mode                           | Same as set detail                              |
+| `/sets/[setId]/learn`      | `(public)`    | Spaced-repetition study mode                   | Same as set detail; progress saved if signed in |
+| `/sets/[setId]/test`       | `(public)`    | Quiz study mode                                | Same as set detail                              |
+| `/sessions/[sessionId]`    | `(dashboard)` | Saved session summary and review mistakes      | Session owner; signed-in sessions only          |
 | `/login`, `/register`      | `(auth)`      | Authentication                                 | Signed-out users                                |
 | `/dashboard`               | `(dashboard)` | Due cards, recent sets, streaks                | Signed-in                                       |
 | `/my-sets`                 | `(dashboard)` | Your sets (drafts and published)               | Signed-in                                       |
@@ -70,6 +80,8 @@ Route groups such as `(public)` organize the code and layouts. They do not appea
 | `/settings`                | `(dashboard)` | Account, data export                           | Signed-in                                       |
 | `/api/auth/[...nextauth]`  | `api`         | Auth.js handlers                               | Auth.js                                         |
 | `/api/sets/[setId]/export` | `api`         | CSV export                                     | Same as set detail                              |
+
+// TODO:: These are the recommended target URLs. The current app has `/learn/[id]` and `/study-sets/create`; align those routes with `/sets/[setId]/learn` and `/my-sets/new` as those features are wired to persisted sets.
 
 ## 4. Who can see what
 
@@ -80,7 +92,7 @@ Route groups such as `(public)` organize the code and layouts. They do not appea
 | Published and unlisted | Yes   | With the link         | With the link | No                |
 | Published and public   | Yes   | Yes                   | Yes           | Yes               |
 
-Every read and write checks this on the server. Hiding a button in the UI is not authorization.
+Visitors may study published public and unlisted sets without an account. Unlisted means not discoverable, not confidential: anyone with the link can share it. Every read and write checks access on the server. Hiding a button in the UI is not authorization. Guest study state is temporary and is not written to `StudySession`, `SessionAnswer`, or `CardProgress`.
 
 ## 5. Technical architecture
 
