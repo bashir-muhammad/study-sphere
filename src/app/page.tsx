@@ -2,8 +2,8 @@
 import Styles from "./page.module.css";
 import { useApp } from "@/context/app-context";
 import { PageTitle, PageDescription } from "@/components/page-title/page-title";
-import { DecksList } from "@/app/modules/decks-list/decks-list";
-import { ProgressOverview } from "@/app/modules/progress-overview/progress-overview";
+import { DecksList } from "@/features/decks-list/decks-list";
+import { ProgressOverview } from "@/features/progress-overview/progress-overview";
 
 export default function Home() {
   const { state } = useApp();
@@ -18,7 +18,7 @@ export default function Home() {
         </PageDescription>
       </header>
       {state.stats.length > 0 && <ProgressOverview stats={state.stats} />}
-      {state.decks.length > 0 && <DecksList decks={state.decks} />}
+      {state.studySets.length > 0 && <DecksList sets={state.studySets} />}
     </div>
   );
 }

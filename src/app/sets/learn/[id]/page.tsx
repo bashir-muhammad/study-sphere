@@ -18,10 +18,10 @@ const Learn = () => {
   const { state } = useApp();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const deck = state.decks?.find((d) => d.id === params.id);
+  const studySets = state.studySets?.find((d) => d.id === params.id);
   const [correctAnswers, setCorrectAnswers] = useState<number>(0);
 
-  const cards = deck?.cards || [];
+  const cards = studySets?.cards || [];
 
   const handleOptionChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.value;
@@ -35,9 +35,9 @@ const Learn = () => {
   return (
     <>
       <header>
-        <PageTitle>{deck?.title}</PageTitle>
-        {deck?.description && (
-          <PageDescription>{deck?.description}</PageDescription>
+        <PageTitle>{studySets?.title}</PageTitle>
+        {studySets?.description && (
+          <PageDescription>{studySets?.description}</PageDescription>
         )}
       </header>
       <section className={Styles.deckContainer}>

@@ -4,7 +4,7 @@ Create a full design system for the following project:
 
 **Core Features:**
 
-- **Home Page** - Browse and manage your study decks with quick access to create new decks and view your dashboard
+- **Home Page** - Browse and manage your study sets with quick access to create new sets and view your dashboard
 
 - **Deck Creation** - Manually create flashcards with questions, answers, and multiple-choice options that are shuffled and validated
 
@@ -16,7 +16,7 @@ Create a full design system for the following project:
 
 **Technical Highlights:**
 
-- localStorage-based persistence for decks and study sessions (no auth required, all data stays in browser)
+- localStorage-based persistence for sets and study sessions (no auth required, all data stays in browser)
 
 - Modern UI with gradient headers, smooth card animations, and a cohesive color system (indigo primary, amber accent)
 
@@ -30,7 +30,7 @@ Create a full design system for the following project:
 
 - `/` - Home with deck list
 
-- `/create` - Build new decks
+- `/create` - Build new set
 
 - `/learn/[id]` - Study with flip cards and multiple choice
 
@@ -39,8 +39,9 @@ Create a full design system for the following project:
 - `/dashboard` - Performance analytics
 
 ## Design system specificition
-- Create first the design system. 
-- 
+
+- Create first the design system.
+-
 - The color pallete must by limited to two colors: The primary color may be `317873` and the Tertiary may be `f4976c` and neutral colors. You can be creative about selection of color according to type of project as it is about Study and learning
 - Fonts: use the `PlusJakartaSans` for the Headings and `Manrope` for body.
 - The look and feels should be unique and pleasing to eyes. It should represent the study and learning mode.
@@ -49,4 +50,3 @@ Create a full design system for the following project:
 - Be creative in designing the interface.
 - create the Components first with all elements which are used in multiple places.
 - Documents the desgin tokens on a convas.
-

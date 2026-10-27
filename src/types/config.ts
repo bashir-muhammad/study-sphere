@@ -5,7 +5,7 @@ export interface Flashcard {
   options: string[];
 }
 
-export interface Deck {
+export interface StudySet {
   id: string;
   title: string;
   description: string;
@@ -40,7 +40,7 @@ export interface RootAppData {
     header: NavItem[];
     footer: NavItem[];
   };
-  decks: Deck[];
+  studySets: StudySet[];
   stats: DeckStats[];
 }
 

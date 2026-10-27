@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1; 
+  line-height: 1;
   gap: var(--space-sm);
   font-family: var(--font-plus-jakarta-sans);
   font-weight: var(--font-semi-bold);

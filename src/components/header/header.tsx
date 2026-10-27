@@ -17,8 +17,8 @@ const Header = ({ className, ...props }: HTMLAttributes<HTMLElement>) => {
         <MainNav
           links={[
             { label: "Home", href: "/" },
-            { label: "Learn", href: "/learn" },
-            { label: "Create Deck", href: "/create" },
+            { label: "Learn", href: "/sets/learn" },
+            { label: "Create Set", href: "/my-sets/create" },
           ]}
         />
       </div>

@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^10.2.19",
+    "@storybook/addon-docs": "^10.4.2",
     "@storybook/nextjs": "^10.2.19",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.9.1",

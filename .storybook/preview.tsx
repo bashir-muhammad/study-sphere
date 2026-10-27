@@ -10,7 +10,11 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      codePanel: true,
+    },
   },
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div
