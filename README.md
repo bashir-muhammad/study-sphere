@@ -4,7 +4,7 @@
 
 Study Sphere helps people learn and retain knowledge through customizable flashcards, effective review sessions, and measurable learning progress.
 
-[Live demo](#) · [Storybook](#) · [User flows and architecture](docs/flow.md) · [Data model](docs/data-model.md)
+[Live demo](#) · [Storybook](#) · [Project backlog](docs/project-backlog.md) · [User flows and architecture](docs/flow.md) · [Data model](docs/data-model.md)
 
 <!-- Replace the # links above with real URLs after the first deploy. Add 1-2 screenshots here. -->
 
