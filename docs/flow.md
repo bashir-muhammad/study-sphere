@@ -86,8 +86,6 @@ Use `/sets` as the canonical public resource name: it is concise, reads naturall
 | `/api/auth/[...nextauth]`  | `api`         | Auth.js handlers                               | Auth.js                                         |
 | `/api/sets/[setId]/export` | `api`         | CSV export                                     | Same as set detail                              |
 
-// TODO:: These are the recommended target URLs. The current app has `/learn/[id]` and `/study-sets/create`; align those routes with `/sets/[setId]/learn` and `/my-sets/new` as those features are wired to persisted sets.
-
 ## 4. Who can see what
 
 | Set state              | Owner | Other signed-in users | Visitors      | Appears in search |
